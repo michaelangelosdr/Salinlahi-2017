@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Main_GameController : MonoBehaviour {
 
@@ -94,8 +95,8 @@ public class Main_GameController : MonoBehaviour {
 
 	public void Return_To_Menu()
 	{
-		//Load Menu
-		GameObject.Find("Unity_SceneManager").GetComponent<Scene_Manager_Script>().Call_Scene(0);
+
+		SceneManager.LoadScene ("Main_Menu_Scene");
 	}
 
 	public void Is_GameOver()
