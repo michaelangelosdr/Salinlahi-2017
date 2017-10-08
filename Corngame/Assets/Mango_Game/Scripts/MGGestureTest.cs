@@ -19,6 +19,21 @@ public class MGGestureTest : MonoBehaviour {
 	}
 
 	void Update() {
+		
+		#if UNITY_EDITOR
+
+		if(Input.mousePresent) {
+
+			touchEffect1.SetActive(true);
+			touchEffect1.transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		} else {
+
+			touchEffect1.SetActive(false);
+		}
+
+		return;
+
+		#endif
 
 		if (Input.touches.Length <= 0)
 			return;
@@ -27,6 +42,7 @@ public class MGGestureTest : MonoBehaviour {
 
 		if (currentTouch1.phase == TouchPhase.Began) {
 
+			touchEffect1.SetActive (false);
 			touchEffect1.SetActive (true);
 			touchEffect1.transform.position = Camera.main.ScreenToWorldPoint (currentTouch1.position);
 		}
@@ -36,12 +52,6 @@ public class MGGestureTest : MonoBehaviour {
 			touchEffect1.transform.position = Camera.main.ScreenToWorldPoint (currentTouch1.position);
 		}
 
-		if (currentTouch1.phase == TouchPhase.Ended) {
-
-			touchEffect1.SetActive (false);
-			touchEffect2.SetActive (false);
-		}
-
 		if (Input.touches.Length <= 1)
 			return;
 
@@ -49,6 +59,7 @@ public class MGGestureTest : MonoBehaviour {
 
 		if (currentTouch2.phase == TouchPhase.Began) {
 
+			touchEffect2.SetActive (false);
 			touchEffect2.SetActive (true);
 			touchEffect2.transform.position = Camera.main.ScreenToWorldPoint (currentTouch2.position);
 		}
@@ -56,11 +67,6 @@ public class MGGestureTest : MonoBehaviour {
 		if (currentTouch2.phase == TouchPhase.Moved) {
 
 			touchEffect2.transform.position = Camera.main.ScreenToWorldPoint (currentTouch2.position);
-		}
-
-		if (currentTouch2.phase == TouchPhase.Ended) {
-
-			touchEffect2.SetActive (false);
 		}
 	}
 }

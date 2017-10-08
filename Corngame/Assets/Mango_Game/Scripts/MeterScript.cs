@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class MeterScript : MonoBehaviour {
 
 	public float secondsToTake;
-	public float minimumSeconds;
-	public float reductionRate;
 	public float currentTime;
 
 	public bool paused;
@@ -30,7 +28,8 @@ public class MeterScript : MonoBehaviour {
 		} else {
 
 			SetCurrentTime (0);
-			gameOver = true;
+//			gameOver = true;
+			Time.timeScale = 1;
 		}
 	}
 
@@ -50,15 +49,13 @@ public class MeterScript : MonoBehaviour {
 	public void OnSpray() {
 
 		paused = true;
-		ReduceSecondsToTake ();
-
 		StartCoroutine (FillEmUp ());
 	}
 
 	IEnumerator FillEmUp() {
 
-		float totalTime = 2f;
-		float restTime = 1.75f;
+		float totalTime = 1.5f;
+		float restTime = 1f;
 		float goTime = totalTime - restTime;
 
 		yield return new WaitForSeconds (restTime);
@@ -78,16 +75,6 @@ public class MeterScript : MonoBehaviour {
 
 		SetCurrentTime (endTime);
 		UpdateFill ();
-	}
-
-	void ReduceSecondsToTake() {
-
-		secondsToTake -= reductionRate;
-
-		if (secondsToTake < minimumSeconds) {
-		
-			secondsToTake = minimumSeconds;
-		}
 	}
 
 	void UpdateFill() {
