@@ -14,46 +14,40 @@ public class Player_script_Insectgame : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		PlayerX = transform.position.x;
 		PlayerY = transform.position.y;
-		playerPosInt = 0;
-		ChangePos (playerPosInt);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-
-
+		playerPosInt = 4;
+		UpdatePos ();
 	}
 
-
-	public void ChangePos(int Index)
+	public void UpdatePos()
 	{
-		transform.position = Vector_Points [Index+1].transform.position;
+		transform.position = Vector_Points [playerPosInt].transform.position;
 	}
 		
-	public void Move_Char(GameObject dir)
-	{
-		if (dir.gameObject.name == "Left_Button") {
-			playerPosInt -= 1;
-		}
+	void Update () {
 
-		else if (dir.gameObject.name == "Right_Button") {
-			playerPosInt += 1;
+		#if UNITY_EDITOR
+		if (Input.anyKeyDown) {
+		
+			if (Input.GetAxisRaw ("Horizontal") != 0)
+				Move_Char ((int)Input.GetAxisRaw ("Horizontal"));
+			else if(Input.GetAxisRaw ("Vertical") != 0)
+				Move_Char ((int)Input.GetAxisRaw ("Vertical") * -3);
 		}
-		else if (dir.gameObject.name == "Down_Button") {
-			playerPosInt += 3;
-		}
-		else if (dir.gameObject.name == "Up_Button") {
-			playerPosInt -= 3;
-		}
-
-		ChangePos (playerPosInt);
-
+		#endif
 	}
 
+	public void Move_Char(int dir)
+	{
+		int previousPlayerInt = playerPosInt;
 
+		playerPosInt += dir;
 
+		if (playerPosInt < 0 || playerPosInt >= Vector_Points.Count)
+			playerPosInt = previousPlayerInt;
 
+		UpdatePos ();
+	}
 }

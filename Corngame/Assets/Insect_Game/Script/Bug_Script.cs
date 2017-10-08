@@ -24,7 +24,7 @@ public class Bug_Script : MonoBehaviour {
 		Bug_Type = 0;
 		Direction = 0;
 		Living_time = 5;
-		Bug_Movement_Speed = 0.05f;
+		Bug_Movement_Speed = 0.025f;
 		Stop_Movement ();
 	}
 
@@ -43,7 +43,6 @@ public class Bug_Script : MonoBehaviour {
 				Bug_y -= Bug_Movement_Speed;
 			}
 		
-
 			Living_time -= Time.deltaTime;
 
 			if (Living_time <= 0) {
