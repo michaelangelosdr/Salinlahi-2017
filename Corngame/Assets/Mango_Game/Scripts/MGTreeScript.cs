@@ -22,8 +22,19 @@ public class MGTreeScript : MonoBehaviour {
 	string currentGesture;
 
 	public float interval;
+	public float normalTimer;
+	public float hardTimer;
+
+	public float easyTimeScale;
+	public float normalTimeScale;
+	public float hardTimeScale;
 
 	int score;
+
+	int currentLimit;
+	int easyLimit;
+	int normalLimit;
+	int hardLimit;
 
 	bool sprayable;
 	bool sprayed;
@@ -37,9 +48,16 @@ public class MGTreeScript : MonoBehaviour {
 		SimpleGesture.WhileStretching (ZoomOut);
 		SimpleGesture.WhilePinching (ZoomIn);
 		StartCoroutine (Loop ());
+		StartCoroutine (IncreaseDifficulty ());
 
 		score = 0;
 		scoreUI.text = "0";
+
+		easyLimit = 2;
+		normalLimit = 4;
+		hardLimit = gestures.Count;
+
+		currentLimit = hardLimit;
 
 		Time.timeScale = 1;
 	}
@@ -62,6 +80,13 @@ public class MGTreeScript : MonoBehaviour {
 		ChooseGesture ();
 	}
 
+	void ChooseGesture() {
+
+		currentGesture = gestures [Random.Range (0, gestures.Count)];
+
+		SetText (currentGesture);
+	}
+
 	void GetSprayed() {
 
 		if (!sprayable || sprayed)
@@ -77,13 +102,6 @@ public class MGTreeScript : MonoBehaviour {
 	void ShowMangoes() {
 
 		mangoes.SetActive (true);
-	}
-
-	void ChooseGesture() {
-	
-		currentGesture = gestures [Random.Range (0, gestures.Count)];
-
-		SetText (currentGesture);
 	}
 
 	void SetText(string s) {
@@ -117,8 +135,17 @@ public class MGTreeScript : MonoBehaviour {
 
 			sprayable = true;
 
-			yield return new WaitUntil (() => mangoes.activeInHierarchy);
+			while (!sprayed) {
 
+				if (meter.gameOver)
+					break;
+
+				yield return null;
+			}
+
+			if (meter.gameOver)
+				break;
+				
 			yield return new WaitForSeconds (1);
 
 			timeElapsed = 0;
@@ -134,7 +161,25 @@ public class MGTreeScript : MonoBehaviour {
 			transform.position = end.position;
 		}
 
+		Debug.Log ("game over");
+
 		Time.timeScale = 1;
+	}
+
+	IEnumerator IncreaseDifficulty() {
+
+		currentLimit = easyLimit;
+		Time.timeScale = easyTimeScale;
+
+		yield return new WaitForSeconds (normalTimer);
+
+		currentLimit = normalLimit;
+		Time.timeScale = normalTimeScale;
+
+		yield return new WaitForSeconds (hardTimer);
+
+		currentLimit = hardLimit;
+		Time.timeScale = hardTimeScale;
 	}
 
 	void AddScore() {
