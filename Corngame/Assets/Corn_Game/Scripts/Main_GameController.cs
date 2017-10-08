@@ -96,7 +96,7 @@ public class Main_GameController : MonoBehaviour {
 	public void Return_To_Menu()
 	{
 
-		SceneManager.LoadScene ("Main_Menu_Scene");
+		SceneManager.LoadScene ("Character_Select_Scene");
 	}
 
 	public void Is_GameOver()
