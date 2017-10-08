@@ -20,7 +20,7 @@ public class Life_Script : MonoBehaviour {
 
 	public void DecreaseLife()
 	{
-		if (Player_Lives != 0) {
+		if (Player_Lives >= 0) {
 			Player_Lives--;
 			Debug.Log ("Minus 1");
 		}
