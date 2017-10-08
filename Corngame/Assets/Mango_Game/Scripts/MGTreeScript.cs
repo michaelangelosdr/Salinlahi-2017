@@ -13,6 +13,8 @@ public class MGTreeScript : MonoBehaviour {
 	[SerializeField] Transform stage;
 	[SerializeField] Transform end;
 
+	[SerializeField] MeterScript meter;
+
 	[SerializeField] Text ui;
 
 	public List<string> gestures;
@@ -47,6 +49,8 @@ public class MGTreeScript : MonoBehaviour {
 		mangoes.SetActive (false);
 		treeAC.SetTrigger ("reset");
 
+		meter.paused = true;
+
 		ChooseGesture ();
 	}
 
@@ -58,6 +62,7 @@ public class MGTreeScript : MonoBehaviour {
 		sprayed = true;
 		treeAC.SetTrigger ("spray");
 		ramonAC.SetTrigger ("spray");
+		meter.OnSpray ();
 	}
 
 	void ShowMangoes() {
@@ -98,6 +103,8 @@ public class MGTreeScript : MonoBehaviour {
 			}
 
 			transform.position = stage.position;
+
+			meter.Reset ();
 
 			sprayable = true;
 
