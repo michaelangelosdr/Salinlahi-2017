@@ -23,6 +23,7 @@ public class Main_GameController : MonoBehaviour {
 
 
 	int Tutorial_inc;
+	public bool AlreadyAdded;
 
 	void Start()
 	{
@@ -38,19 +39,25 @@ public class Main_GameController : MonoBehaviour {
 
 
 		if (Input.GetKeyDown (KeyCode.R)) {
-			
 			re_randomize ();
+		}
+
+		if (score_scipt.Get_Score () % 30 == 0 && score_scipt.Get_Score() != 0) {
+			if (AlreadyAdded == false) {
+				TIMER_SCRIPT.Add_Time ();
+			}
 		}
 
 		if (corn_Controller.All_Corn_tapped () == true) {
 			//Insert Animation Script here 
 
-
 			if (score_scipt.Get_Score () % 10 == 0) {
 				corn_Controller.Increase_Max_Corn ();
-				TIMER_SCRIPT.DecreaseTime ();
+				TIMER_SCRIPT.Add_BonusTime ();
 			}
-			Debug.Log ("Check This");
+
+
+
 			//TIMER_SCRIPT.Timer_Reset ();
 			re_randomize ();
 		}
@@ -69,6 +76,7 @@ public class Main_GameController : MonoBehaviour {
 	public void Add_Score()
 	{
 		score_scipt.Main_Score_Add ();
+
 
 	}
 	public void Life_Decreased()

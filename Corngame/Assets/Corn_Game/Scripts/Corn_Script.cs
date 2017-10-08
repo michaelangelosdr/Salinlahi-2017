@@ -73,6 +73,9 @@ public class Corn_Script : MonoBehaviour {
 					Is_Rotten = false;
 				}
 				GM_script.Add_Score ();
+				if (GM_script.AlreadyAdded) {
+					GM_script.AlreadyAdded = false;
+				}
 			} else {			
 				StartCoroutine (DelayFace ());
 				Child_Corn.GetComponent<Animation> ().Play ();
