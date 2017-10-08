@@ -9,14 +9,18 @@ public class timer_script : MonoBehaviour {
 	public float Set_Time;
 	private bool timer_bool;
 	public float Time_Cap;
+	public float Bonus_Time;
+
 
 	//Change this to a bar or a animating clock
 	[SerializeField] GameObject Timer_Object;
+	[SerializeField] GameObject Time_Bonus_Object;
 	[SerializeField] Main_GameController M_gamecontroller;
 
 
 	// Use this for initialization
 	void Start () {
+		Bonus_Time = 3;
 		Time_Cap = 0;
 		Internal_Timer = Set_Time;
 	}
@@ -55,13 +59,24 @@ public class timer_script : MonoBehaviour {
 		timer_bool = true;
 		Internal_Timer = Set_Time - Time_Cap;
 	}
+
+	public void Add_Time ()
+	{
+		Internal_Timer += Bonus_Time;
+		Time_Bonus_Object.SetActive (true);
+		Time_Bonus_Object.GetComponent<Text> ().text = "+" + Bonus_Time;
+		M_gamecontroller.AlreadyAdded = true;
+	}
+
+
+
 	public void Timer_Resume()
 	{
 		timer_bool = true;
 	}
 
-	public void DecreaseTime()
+	public void Add_BonusTime()
 	{
-		Time_Cap += 0.5f;
+		Bonus_Time += 1;
 	}
 }
