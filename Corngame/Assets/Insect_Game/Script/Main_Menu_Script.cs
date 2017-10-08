@@ -4,65 +4,39 @@ using UnityEngine;
 
 public class Main_Menu_Script : MonoBehaviour {
 
+	int currentCharacterIndex = 0;
 
-	public List<GameObject> GameTitle_Canvass;
+	public List<SceneChanger> characters;
 
-	[SerializeField] GameObject GameValues;
-	[SerializeField] Scene_Manager_Script Scene_Manager;
-	int Default_Val;
-
-
-	// Use this for initialization
-	void Start () {
-		Default_Val = GameValues.GetComponent<Game_Values>().Default_Menu_Value;
-		foreach (GameObject C in GameTitle_Canvass) {
-			C.SetActive (false);
-		}
-
-		GameTitle_Canvass [Default_Val].SetActive (true);
-	}
+	public void Start() {
 	
-	// Update is called once per frame
-	void Update () {
-		
+		currentCharacterIndex = 0;
+
+		UpdateCanvas ();
 	}
 
+	public void Navigate(int dir) {
 
-	public void GoRight()
-	{
+		currentCharacterIndex -= dir;
 
-		if (Default_Val >= GameTitle_Canvass.Count - 1) {
-			Default_Val = 0;
-		}
-		else
-		Default_Val++;
+		if (currentCharacterIndex < 0)
+			currentCharacterIndex = characters.Count-1;
+		else if (currentCharacterIndex >= characters.Count)
+			currentCharacterIndex = 0;
 
-
-
-		Change_Screen ();
-	}
-	public void GoLeft()
-	{if (Default_Val <= 0) {
-			Default_Val = 3;
-		}
-		Default_Val--;
-
-		Change_Screen ();
+		UpdateCanvas ();
 	}
 
+	public void UpdateCanvas() {
 
-	public void Change_Screen()
-	{
-		foreach (GameObject g in GameTitle_Canvass) {
-			g.SetActive (false);
-		}
-		GameTitle_Canvass [Default_Val].SetActive (true);
+		foreach (SceneChanger sc in characters)
+			sc.gameObject.SetActive (false);
+
+		characters [currentCharacterIndex].gameObject.SetActive (true);
 	}
 
-	public void Start_Button_Functionality()
-	{
-		Debug.Log (Default_Val);
-		Scene_Manager.Call_Scene (Default_Val + 1);
-	}
+	public void GoToScene() {
 
+		characters [currentCharacterIndex].ChangeScene ();
+	}
 }
