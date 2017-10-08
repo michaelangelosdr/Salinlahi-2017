@@ -16,11 +16,14 @@ public class MGTreeScript : MonoBehaviour {
 	[SerializeField] MeterScript meter;
 
 	[SerializeField] Text ui;
+	[SerializeField] Text scoreUI;
 
 	public List<string> gestures;
 	string currentGesture;
 
 	public float interval;
+
+	int score;
 
 	bool sprayable;
 	bool sprayed;
@@ -34,6 +37,11 @@ public class MGTreeScript : MonoBehaviour {
 		SimpleGesture.WhileStretching (ZoomOut);
 		SimpleGesture.WhilePinching (ZoomIn);
 		StartCoroutine (Loop ());
+
+		score = 0;
+		scoreUI.text = "0";
+
+		Time.timeScale = 1;
 	}
 
 	void Update() {
@@ -63,6 +71,7 @@ public class MGTreeScript : MonoBehaviour {
 		treeAC.SetTrigger ("spray");
 		ramonAC.SetTrigger ("spray");
 		meter.OnSpray ();
+		AddScore ();
 	}
 
 	void ShowMangoes() {
@@ -86,7 +95,7 @@ public class MGTreeScript : MonoBehaviour {
 
 		float timeElapsed;
 
-		while (true) {
+		while (!meter.gameOver) {
 
 			Reset ();
 
@@ -124,6 +133,14 @@ public class MGTreeScript : MonoBehaviour {
 
 			transform.position = end.position;
 		}
+
+		Time.timeScale = 1;
+	}
+
+	void AddScore() {
+
+		score++;
+		scoreUI.text = score.ToString ();
 	}
 
 	void SwipeUp() {

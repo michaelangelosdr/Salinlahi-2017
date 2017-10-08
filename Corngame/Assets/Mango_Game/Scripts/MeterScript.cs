@@ -11,11 +11,13 @@ public class MeterScript : MonoBehaviour {
 	public float currentTime;
 
 	public bool paused;
+	public bool gameOver;
 
 	public Image fill;
 
 	void Start() {
 
+		gameOver = false;
 		Reset ();
 	}
 
@@ -28,7 +30,7 @@ public class MeterScript : MonoBehaviour {
 		} else {
 
 			SetCurrentTime (0);
-			Debug.Log ("Game Over");
+			gameOver = true;
 		}
 	}
 
