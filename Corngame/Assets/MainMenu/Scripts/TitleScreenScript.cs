@@ -19,11 +19,10 @@ public class TitleScreenScript : MonoBehaviour {
 			if (Input.GetTouch (0).phase == TouchPhase.Began) {
 
 				SceneManager.LoadScene (nextScene);
-				SoundUIScript.Instance.Show (true);
-			} else {
-			
-				SoundUIScript.Instance.Show (false);
+				return;
 			}
 		}
+
+		SoundUIScript.Instance.Show (false);
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Main_Menu_Script : MonoBehaviour {
+public class CharacterSelectScript : MonoBehaviour {
 
 	int currentCharacterIndex = 0;
 
@@ -10,6 +10,8 @@ public class Main_Menu_Script : MonoBehaviour {
 
 	public void Start() {
 	
+		SoundUIScript.Instance.Show (true);
+
 		currentCharacterIndex = 0;
 
 		UpdateCanvas ();
