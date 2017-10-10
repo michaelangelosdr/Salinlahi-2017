@@ -30,6 +30,8 @@ public class Main_GameController : MonoBehaviour {
 		Reset_To_Tutorial ();
 		corn_Controller.Corns_Tappable (false);
 		TIMER_SCRIPT.Timer_Stop ();
+		BGMScript.Instance.PlayCornGameBGM ();
+
 	}
 
 	
