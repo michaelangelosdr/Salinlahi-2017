@@ -76,12 +76,14 @@ public class Corn_Script : MonoBehaviour {
 				if (GM_script.AlreadyAdded) {
 					GM_script.AlreadyAdded = false;
 				}
+				SFXScript.Instance.CornGamePlaySFX ("blop");
 			} else {			
 				StartCoroutine (DelayFace ());
 				Child_Corn.GetComponent<Animation> ().Play ();
 				GM_script.Life_Decreased ();
+				SFXScript.Instance.CornGamePlaySFX ("squeek");
 			}
-			sfxscript.Play_SFX ("blop");
+
 		}
 	}
 

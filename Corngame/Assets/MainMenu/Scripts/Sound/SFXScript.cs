@@ -15,6 +15,8 @@ public class SFXScript : MonoBehaviour {
 	}
 
 	AudioSource audioSource;
+	public List<AudioClip> CorngameSFXs;
+
 
 	void Start() {
 
@@ -28,8 +30,24 @@ public class SFXScript : MonoBehaviour {
 		audioSource = GetComponent<AudioSource> ();
 	}
 
-	public void PlayClip(AudioClip newClip) {
-		
+	public void PlayClip(AudioClip newClip,float volume = 1.0f) {
+
+		audioSource.volume = volume;
 		audioSource.PlayOneShot (newClip);
 	}
+
+	public void CornGamePlaySFX(string nameOfSFX)
+	{
+		switch (nameOfSFX) {
+		case "blop":
+			PlayClip (CorngameSFXs [0], 1.0f);
+			break;
+		case "squeek":
+			PlayClip (CorngameSFXs [1], 1.0f);
+			break;
+		}
+
+	}
+
+
 }

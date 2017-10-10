@@ -17,7 +17,9 @@ public class BGMScript : MonoBehaviour {
 	AudioSource audioSource;
 
 	public AudioClip mainMenuClip;
+	public AudioClip CornGameClip;
 	public AudioClip bgmClip;
+
 
 	void Start() {
 
@@ -31,8 +33,9 @@ public class BGMScript : MonoBehaviour {
 		audioSource = GetComponent<AudioSource> ();
 	}
 
-	public void PlayClip(AudioClip newClip) {
+	public void PlayClip(AudioClip newClip, float volume = 0.75f) {
 
+		audioSource.volume = volume;
 		audioSource.clip = newClip;
 		audioSource.Play ();
 	}
@@ -46,4 +49,9 @@ public class BGMScript : MonoBehaviour {
 
 		PlayClip (bgmClip);
 	} 
+
+	public void PlayCornGameBGM()
+	{
+		PlayClip (CornGameClip,0.1f);
+	}
 }
