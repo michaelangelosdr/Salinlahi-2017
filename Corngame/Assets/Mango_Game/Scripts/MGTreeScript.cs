@@ -96,6 +96,7 @@ public class MGTreeScript : MonoBehaviour {
 		if (!sprayable || sprayed)
 			return;
 
+		SFXScript.Instance.PlayMangoSpray ();
 		sprayed = true;
 		treeAC.SetTrigger ("spray");
 		ramonAC.SetTrigger ("spray");
