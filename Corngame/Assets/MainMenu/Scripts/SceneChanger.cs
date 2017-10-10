@@ -12,6 +12,8 @@ public class SceneChanger : MonoBehaviour {
 		if (string.IsNullOrEmpty (sceneName))
 			return;
 
+		SoundUIScript.Instance.Show (true);
+
 		SceneManager.LoadScene (sceneName);
 	}
 }
