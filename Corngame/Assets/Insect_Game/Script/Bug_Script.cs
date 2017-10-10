@@ -71,7 +71,7 @@ public class Bug_Script : MonoBehaviour {
 			if (Is_Wasp) {
 				Wasp_bug.GetComponent<SpriteRenderer> ().flipX = true;
 			} else {
-				Spider_Bug.GetComponent<SpriteRenderer> ().flipX = true;
+				Spider_Bug.GetComponent<SpriteRenderer> ().flipX = false;
 			}
 			Direction = 1;
 			//Debug.Log (gameObject.name + "is going Right");
@@ -83,7 +83,7 @@ public class Bug_Script : MonoBehaviour {
 			if (Is_Wasp) {
 				Wasp_bug.GetComponent<SpriteRenderer> ().flipX = false;
 			} else {
-				Spider_Bug.GetComponent<SpriteRenderer> ().flipX = false;
+				Spider_Bug.GetComponent<SpriteRenderer> ().flipX = true;
 			}
 			Direction = 2;
 
