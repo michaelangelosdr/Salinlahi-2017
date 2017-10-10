@@ -9,6 +9,9 @@ public class SceneChanger : MonoBehaviour {
 
 	public void ChangeScene() {
 	
+		if (string.IsNullOrEmpty (sceneName))
+			return;
+
 		SceneManager.LoadScene (sceneName);
 	}
 }
