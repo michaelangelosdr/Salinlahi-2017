@@ -28,7 +28,7 @@ public class MeterScript : MonoBehaviour {
 		} else {
 
 			SetCurrentTime (0);
-//			gameOver = true;
+			gameOver = true;
 			Time.timeScale = 1;
 		}
 	}

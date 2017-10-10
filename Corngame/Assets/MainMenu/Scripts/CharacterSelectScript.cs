@@ -10,7 +10,7 @@ public class CharacterSelectScript : MonoBehaviour {
 
 	public void Start() {
 	
-		SoundUIScript.Instance.Show (true);
+		SoundUIScript.Instance.Show (false);
 
 		currentCharacterIndex = 0;
 
@@ -38,7 +38,7 @@ public class CharacterSelectScript : MonoBehaviour {
 	}
 
 	public void GoToScene() {
-
+		
 		characters [currentCharacterIndex].ChangeScene ();
 	}
 }
