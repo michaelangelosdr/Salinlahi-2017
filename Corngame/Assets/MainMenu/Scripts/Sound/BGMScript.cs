@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGMScript : SoundScript {
+public class BGMScript : MonoBehaviour {
 
 	private static BGMScript instance;
 
@@ -31,22 +31,9 @@ public class BGMScript : SoundScript {
 		DontDestroyOnLoad (gameObject);
 
 		audioSource = GetComponent<AudioSource> ();
-
-		GetOriginalVolume ();
-	}
-
-	void Update() {
-
-		if (!enabled) {
-		
-			audioSource.volume = 0;
-		}
 	}
 
 	public void PlayClip(AudioClip newClip, float volume = 0.75f) {
-
-		if (!enabled)
-			return;
 
 		audioSource.volume = volume;
 		audioSource.clip = newClip;

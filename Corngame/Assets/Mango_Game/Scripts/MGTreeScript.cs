@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class MGTreeScript : MonoBehaviour {
 	
 	[SerializeField] GameObject mangoes;
-	[SerializeField] GameObject speedUp;
-
 	[SerializeField] Animator treeAC;
 	[SerializeField] Animator ramonAC;
 
@@ -55,13 +53,11 @@ public class MGTreeScript : MonoBehaviour {
 		score = 0;
 		scoreUI.text = "0";
 
-		easyLimit = 4;
-		normalLimit = 5;
+		easyLimit = 2;
+		normalLimit = 4;
 		hardLimit = gestures.Count;
 
-//		currentLimit = hardLimit;
-
-		speedUp.gameObject.SetActive (false);
+		currentLimit = hardLimit;
 
 		Time.timeScale = 1;
 	}
@@ -86,7 +82,7 @@ public class MGTreeScript : MonoBehaviour {
 
 	void ChooseGesture() {
 
-		currentGesture = gestures [Random.Range (0, currentLimit)];
+		currentGesture = gestures [Random.Range (0, gestures.Count)];
 
 		SetText (currentGesture);
 	}
@@ -96,7 +92,6 @@ public class MGTreeScript : MonoBehaviour {
 		if (!sprayable || sprayed)
 			return;
 
-		SFXScript.Instance.PlayMangoSpray ();
 		sprayed = true;
 		treeAC.SetTrigger ("spray");
 		ramonAC.SetTrigger ("spray");
@@ -180,13 +175,11 @@ public class MGTreeScript : MonoBehaviour {
 
 		currentLimit = normalLimit;
 		Time.timeScale = normalTimeScale;
-		speedUp.gameObject.SetActive (true);
 
 		yield return new WaitForSeconds (hardTimer);
 
 		currentLimit = hardLimit;
 		Time.timeScale = hardTimeScale;
-		speedUp.gameObject.SetActive (true);
 	}
 
 	void AddScore() {

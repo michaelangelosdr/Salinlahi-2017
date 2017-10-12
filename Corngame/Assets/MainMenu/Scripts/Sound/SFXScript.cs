@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SFXScript : SoundScript {
+public class SFXScript : MonoBehaviour {
 	
 	private static SFXScript instance;
 
@@ -16,7 +16,7 @@ public class SFXScript : SoundScript {
 
 	AudioSource audioSource;
 	public List<AudioClip> CorngameSFXs;
-	public AudioClip mangoSpray;
+
 
 	void Start() {
 
@@ -27,24 +27,11 @@ public class SFXScript : SoundScript {
 
 		DontDestroyOnLoad (gameObject);
 
-		GetOriginalVolume ();
-
 		audioSource = GetComponent<AudioSource> ();
-	}
-
-	void Update() {
-
-		if (!enabled) {
-
-			audioSource.volume = 0;
-		}
 	}
 
 	public void PlayClip(AudioClip newClip,float volume = 1.0f) {
 
-		if (!enabled)
-			return;
-		
 		audioSource.volume = volume;
 		audioSource.PlayOneShot (newClip);
 	}
@@ -62,8 +49,5 @@ public class SFXScript : SoundScript {
 
 	}
 
-	public void PlayMangoSpray() {
 
-		PlayClip (mangoSpray, 0.0625f);
-	}
 }

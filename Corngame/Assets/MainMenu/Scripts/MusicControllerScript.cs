@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MusicControllerScript : MonoBehaviour {
 
-	public SoundScript soundScript;
+	public AudioSource audioSource;
 
 	public Sprite imageOn;
 	public Sprite imageOff;
@@ -19,20 +19,23 @@ public class MusicControllerScript : MonoBehaviour {
 	void Start () {
 
 		enabled = true;
+		originalVolume = audioSource.volume;
+
+
 	}
 
 	public void ButtonClick() {
 	
 		enabled = !enabled;
-		soundScript.enabled = enabled;
 
 		if (enabled) {
 			
-			soundScript.SetToOriginalVolume ();
+			audioSource.volume = originalVolume;
 			buttonImage.sprite = imageOn;
 
 		} else {
 			
+			audioSource.volume = 0;
 			buttonImage.sprite = imageOff;
 		}
 	}

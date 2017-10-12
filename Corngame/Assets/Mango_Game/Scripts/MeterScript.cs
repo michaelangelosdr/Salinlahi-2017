@@ -16,7 +16,7 @@ public class MeterScript : MonoBehaviour {
 	void Start() {
 
 		gameOver = false;
-		UpdateFill ();
+		Reset ();
 	}
 
 	void Update() {
@@ -28,7 +28,7 @@ public class MeterScript : MonoBehaviour {
 		} else {
 
 			SetCurrentTime (0);
-			gameOver = true;
+//			gameOver = true;
 			Time.timeScale = 1;
 		}
 	}
@@ -41,11 +41,8 @@ public class MeterScript : MonoBehaviour {
 	}
 
 	void SetCurrentTime(float time) {
-		
+
 		currentTime = time;
-
-		currentTime = Mathf.Clamp (currentTime, 0, secondsToTake);
-
 		UpdateFill ();
 	}
 
