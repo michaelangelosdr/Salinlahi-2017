@@ -6,23 +6,39 @@ using UnityEngine.SceneManagement;
 public class TitleScreenScript : MonoBehaviour {
 
 	public string nextScene;
+	[SerializeField] GameObject DarkOverlay;
+	[SerializeField] Overlay_Fade_Script fadescript;
+
+
 
 	void Update () {
 		
 		#if UNITY_EDITOR
 		if(Input.GetMouseButtonDown(0))
-			SceneManager.LoadScene(nextScene);
+			StartCoroutine (LoadNext ());
 		#endif
 
 		if (Input.touches.Length > 0) {
 		
-			if (Input.GetTouch (0).phase == TouchPhase.Began) {
+			if (Input.GetTouch (0).phase == TouchPhase.Began) 
+			{
 
-				SceneManager.LoadScene (nextScene);
-				return;
+				StartCoroutine (LoadNext ());
+				//return;
 			}
 		}
 
 		SoundUIScript.Instance.Show (false);
+	}
+
+
+	IEnumerator LoadNext()
+	{
+		float fadetime = fadescript.BeginFade (1);
+		fadescript.StartFade ();
+		yield return new WaitForSeconds (fadetime);
+		SceneManager.LoadScene (nextScene);
+
+
 	}
 }
