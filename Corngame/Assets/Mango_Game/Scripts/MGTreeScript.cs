@@ -33,6 +33,8 @@ public class MGTreeScript : MonoBehaviour {
 
 	int score;
 
+	int previousGestureIndex = -1;
+	int currentGestureIndex = -1;
 	int currentLimit;
 	int easyLimit;
 	int normalLimit;
@@ -42,13 +44,16 @@ public class MGTreeScript : MonoBehaviour {
 	bool sprayed;
 
 	void Awake () {
-
+		
 		SimpleGesture.On4AxisSwipeUp (SwipeUp);
 		SimpleGesture.On4AxisSwipeDown (SwipeDown);
+		SimpleGesture.On4AxisSwipeRight (SwipeRight);
+		SimpleGesture.On4AxisSwipeLeft (SwipeLeft);
 		SimpleGesture.OnCircle (Circle);
 		SimpleGesture.OnZigZag (Zigzag);
 		SimpleGesture.WhileStretching (ZoomOut);
 		SimpleGesture.WhilePinching (ZoomIn);
+		SimpleGesture.WhileTwisting (Twist);
 		StartCoroutine (Loop ());
 		StartCoroutine (IncreaseDifficulty ());
 
@@ -56,9 +61,10 @@ public class MGTreeScript : MonoBehaviour {
 		scoreUI.text = "0";
 
 		easyLimit = 4;
-		normalLimit = 5;
+		normalLimit = 6;
 		hardLimit = gestures.Count;
 
+		currentLimit = easyLimit;
 //		currentLimit = hardLimit;
 
 		speedUp.gameObject.SetActive (false);
@@ -86,7 +92,30 @@ public class MGTreeScript : MonoBehaviour {
 
 	void ChooseGesture() {
 
-		currentGesture = gestures [Random.Range (0, currentLimit)];
+		Debug.Log ("CHOOSE GESTURE");
+
+		if (previousGestureIndex == -1) {
+
+			Debug.Log ("Setting");
+
+			currentGestureIndex = Random.Range (0, currentLimit);
+			previousGestureIndex = currentGestureIndex;
+
+		} else {
+		
+			currentGestureIndex = Random.Range (0, currentLimit);
+
+			Debug.Log (previousGestureIndex + " : " + currentGestureIndex);
+
+			while (previousGestureIndex == currentGestureIndex) {
+
+				currentGestureIndex = Random.Range (0, currentLimit);
+			}
+
+			previousGestureIndex = currentGestureIndex;
+		}
+
+		currentGesture = gestures [currentGestureIndex];
 
 		SetText (currentGesture);
 	}
@@ -211,6 +240,22 @@ public class MGTreeScript : MonoBehaviour {
 		GetSprayed ();
 	}
 
+	void SwipeLeft() {
+
+		if (!currentGesture.Equals ("swipeleft"))
+			return;
+
+		GetSprayed ();
+	}
+
+	void SwipeRight() {
+
+		if (!currentGesture.Equals ("swiperight"))
+			return;
+
+		GetSprayed ();
+	}
+
 	void Circle(GestureInfoCircle g) {
 
 		if (!currentGesture.Equals ("circle"))
@@ -238,6 +283,14 @@ public class MGTreeScript : MonoBehaviour {
 	void ZoomOut() {
 
 		if (!currentGesture.Equals ("zoomout"))
+			return;
+
+		GetSprayed ();
+	}
+
+	void Twist() {
+
+		if (!currentGesture.Equals ("twist"))
 			return;
 
 		GetSprayed ();
