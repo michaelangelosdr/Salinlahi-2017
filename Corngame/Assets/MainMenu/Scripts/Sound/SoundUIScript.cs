@@ -40,9 +40,16 @@ public class SoundUIScript : MonoBehaviour {
 
 	public void ShowSettingsPrefab() {
 
-		Debug.Log ("Bruh");
-
 		settingsShown = !settingsShown;
+
+		//Testtest
+		//This script makes all game objecs
+		try{
+			GameObject.Find("Corn_Field").GetComponent<Corn_Controller>().Corns_Tappable(!settingsShown);
+		}
+		catch {
+			Debug.LogError ("ERROR NO CORN FIELD HERE, CAN CONTINUE THO");
+		}
 
 		settingsPrefab.SetActive (settingsShown);
 	}
