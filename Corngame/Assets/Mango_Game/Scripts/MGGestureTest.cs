@@ -23,7 +23,7 @@ public class MGGestureTest : MonoBehaviour {
 
 	void Update() {
 
-		if (meter.gameOver)
+		if (meter.gameOver || TutorialScript.showing)
 			return;
 
 		#if UNITY_EDITOR
