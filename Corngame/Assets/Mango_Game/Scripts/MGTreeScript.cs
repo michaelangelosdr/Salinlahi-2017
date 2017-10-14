@@ -24,6 +24,8 @@ public class MGTreeScript : MonoBehaviour {
 
 	[SerializeField] SpriteRenderer gestureSpriteRenderer;
 
+	[SerializeField] BackgroundScript background;
+
 	public List<string> gestures;
 	string currentGesture;
 
@@ -133,6 +135,7 @@ public class MGTreeScript : MonoBehaviour {
 		if (!sprayable || sprayed || meter.gameOver)
 			return;
 
+		background.Animate ();
 		SFXScript.Instance.PlayMangoSpray ();
 		sprayed = true;
 		treeAC.SetTrigger ("spray");
