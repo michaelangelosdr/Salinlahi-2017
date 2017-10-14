@@ -32,7 +32,7 @@ public class MusicControllerScript : MonoBehaviour {
 			buttonImage.sprite = imageOn;
 
 		} else {
-			
+			soundScript.GetOriginalVolume ();
 			buttonImage.sprite = imageOff;
 		}
 	}

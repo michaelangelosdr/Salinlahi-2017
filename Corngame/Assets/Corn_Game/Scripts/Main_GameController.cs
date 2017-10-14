@@ -87,11 +87,6 @@ public class Main_GameController : MonoBehaviour {
 	}
 
 
-	public void RestartGame()
-	{
-		GameObject.Find("Unity_SceneManager").GetComponent<Scene_Manager_Script>().Call_Scene(1);
-	}
-
 	public void Open_Trivia()
 	{
 		GameOver_Canvas.SetActive (false);
@@ -102,12 +97,7 @@ public class Main_GameController : MonoBehaviour {
 		Trivia_Canvas.SetActive (false);
 		Show_Gameoverscreen ();
 	}
-
-	public void Return_To_Menu()
-	{
-
-		SceneManager.LoadScene ("Character_Select_Scene");
-	}
+		
 
 	public void Is_GameOver()
 	{
