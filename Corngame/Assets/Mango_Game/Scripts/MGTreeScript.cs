@@ -22,8 +22,12 @@ public class MGTreeScript : MonoBehaviour {
 	[SerializeField] Text scoreUI;
 	[SerializeField] Text finalScoreUI;
 
+	[SerializeField] SpriteRenderer gestureSpriteRenderer;
+
 	public List<string> gestures;
 	string currentGesture;
+
+	public List<Sprite> gestureSprites;
 
 	public float interval;
 	public float normalTimer;
@@ -119,6 +123,7 @@ public class MGTreeScript : MonoBehaviour {
 		}
 
 		currentGesture = gestures [currentGestureIndex];
+		gestureSpriteRenderer.sprite = gestureSprites [currentGestureIndex];
 
 		SetText (currentGesture);
 	}
@@ -138,6 +143,7 @@ public class MGTreeScript : MonoBehaviour {
 
 	void ShowMangoes() {
 
+		SFXScript.Instance.CornGamePlaySFX ("blop");
 		mangoes.SetActive (true);
 	}
 
@@ -147,6 +153,12 @@ public class MGTreeScript : MonoBehaviour {
 	}
 
 	IEnumerator Loop() {
+
+		yield return new WaitForEndOfFrame ();
+
+		yield return new WaitUntil (() => !TutorialScript.showing);
+
+		BGMScript.Instance.PlayMangoBGM ();
 
 		float timeElapsed;
 
