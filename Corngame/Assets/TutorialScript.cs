@@ -25,8 +25,7 @@ public class TutorialScript : MonoBehaviour {
 
 			if (currentIndex >= pages.Count) {
 			
-				showing = false;
-				gameObject.SetActive (false);
+				CloseTutorial ();
 			} else {
 
 				ShowPage ();
@@ -40,5 +39,11 @@ public class TutorialScript : MonoBehaviour {
 			go.SetActive (false);
 
 		pages [currentIndex].SetActive (true);
+	}
+
+	public void CloseTutorial() {
+
+		showing = false;
+		gameObject.SetActive (false);
 	}
 }
