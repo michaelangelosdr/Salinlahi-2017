@@ -143,6 +143,7 @@ public class MGTreeScript : MonoBehaviour {
 
 	void ShowMangoes() {
 
+		SFXScript.Instance.CornGamePlaySFX ("blop");
 		mangoes.SetActive (true);
 	}
 
@@ -152,6 +153,10 @@ public class MGTreeScript : MonoBehaviour {
 	}
 
 	IEnumerator Loop() {
+
+		yield return new WaitForEndOfFrame ();
+
+		BGMScript.Instance.PlayMangoBGM ();
 
 		float timeElapsed;
 
