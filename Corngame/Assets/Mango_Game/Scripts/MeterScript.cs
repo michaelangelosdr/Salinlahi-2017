@@ -21,6 +21,9 @@ public class MeterScript : MonoBehaviour {
 
 	void Update() {
 
+		if (TutorialScript.showing)
+			return;
+
 		if (currentTime > 0) {
 
 			if (!paused)
