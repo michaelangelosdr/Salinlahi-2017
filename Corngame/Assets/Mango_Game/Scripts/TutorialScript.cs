@@ -19,10 +19,10 @@ public class TutorialScript : MonoBehaviour {
 
 	void Update() {
 
-		#if UNITY_EDITOR
-		if(Input.GetMouseButtonDown(0))
-			NextPage();
-		#endif
+//		#if UNITY_EDITOR
+//		if(Input.GetMouseButtonDown(0))
+//			NextPage();
+//		#endif
 	}
 
 	public void NextPage() {
