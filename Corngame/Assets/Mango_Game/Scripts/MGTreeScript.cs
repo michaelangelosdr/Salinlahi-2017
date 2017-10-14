@@ -7,6 +7,7 @@ public class MGTreeScript : MonoBehaviour {
 	
 	[SerializeField] GameObject mangoes;
 	[SerializeField] GameObject speedUp;
+	[SerializeField] GameObject gameOverCanvas;
 
 	[SerializeField] Animator treeAC;
 	[SerializeField] Animator ramonAC;
@@ -19,6 +20,7 @@ public class MGTreeScript : MonoBehaviour {
 
 	[SerializeField] Text ui;
 	[SerializeField] Text scoreUI;
+	[SerializeField] Text finalScoreUI;
 
 	public List<string> gestures;
 	string currentGesture;
@@ -68,6 +70,7 @@ public class MGTreeScript : MonoBehaviour {
 //		currentLimit = hardLimit;
 
 		speedUp.gameObject.SetActive (false);
+		gameOverCanvas.SetActive (false);
 
 		Time.timeScale = 1;
 	}
@@ -122,7 +125,7 @@ public class MGTreeScript : MonoBehaviour {
 
 	void GetSprayed() {
 
-		if (!sprayable || sprayed)
+		if (!sprayable || sprayed || meter.gameOver)
 			return;
 
 		SFXScript.Instance.PlayMangoSpray ();
@@ -198,6 +201,9 @@ public class MGTreeScript : MonoBehaviour {
 		Debug.Log ("game over");
 
 		Time.timeScale = 1;
+
+		finalScoreUI.text = score.ToString ();
+		gameOverCanvas.SetActive (true);
 	}
 
 	IEnumerator IncreaseDifficulty() {
