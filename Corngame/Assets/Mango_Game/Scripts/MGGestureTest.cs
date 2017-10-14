@@ -6,8 +6,11 @@ using UnityEngine.UI;
 public class MGGestureTest : MonoBehaviour {
 
 	[SerializeField] Text ui;
+
 	[SerializeField] GameObject touchEffect1;
 	[SerializeField] GameObject touchEffect2;
+
+	[SerializeField] MeterScript meter;
 
 	Touch currentTouch1;
 	Touch currentTouch2;
@@ -19,7 +22,10 @@ public class MGGestureTest : MonoBehaviour {
 	}
 
 	void Update() {
-		
+
+		if (meter.gameOver)
+			return;
+
 		#if UNITY_EDITOR
 
 		if(Input.mousePresent) {
