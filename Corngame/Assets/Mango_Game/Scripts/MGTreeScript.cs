@@ -22,8 +22,12 @@ public class MGTreeScript : MonoBehaviour {
 	[SerializeField] Text scoreUI;
 	[SerializeField] Text finalScoreUI;
 
+	[SerializeField] SpriteRenderer gestureSpriteRenderer;
+
 	public List<string> gestures;
 	string currentGesture;
+
+	public List<Sprite> gestureSprites;
 
 	public float interval;
 	public float normalTimer;
@@ -119,6 +123,7 @@ public class MGTreeScript : MonoBehaviour {
 		}
 
 		currentGesture = gestures [currentGestureIndex];
+		gestureSpriteRenderer.sprite = gestureSprites [currentGestureIndex];
 
 		SetText (currentGesture);
 	}
