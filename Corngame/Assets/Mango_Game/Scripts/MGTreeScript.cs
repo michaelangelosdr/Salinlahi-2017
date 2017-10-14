@@ -202,6 +202,8 @@ public class MGTreeScript : MonoBehaviour {
 
 		Time.timeScale = 1;
 
+		StopAllCoroutines ();
+
 		finalScoreUI.text = score.ToString ();
 		gameOverCanvas.SetActive (true);
 	}
