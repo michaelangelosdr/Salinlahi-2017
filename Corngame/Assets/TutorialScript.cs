@@ -19,18 +19,20 @@ public class TutorialScript : MonoBehaviour {
 
 	void Update() {
 
-		if (Input.GetMouseButtonDown (0)) {
-		
-			currentIndex++;
+		#if UNITY_EDITOR
+		if(Input.GetMouseButtonDown(0))
+			NextPage();
+		#endif
+	}
 
-			if (currentIndex >= pages.Count) {
-			
-				CloseTutorial ();
-			} else {
+	public void NextPage() {
 
-				ShowPage ();
-			}
-		}
+		currentIndex++;
+
+		if (currentIndex >= pages.Count)
+			CloseTutorial ();
+		else
+			ShowPage ();
 	}
 
 	void ShowPage() {
