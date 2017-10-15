@@ -29,7 +29,7 @@ public class Bug_Script : MonoBehaviour {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 	
 		if (Go_Move) {
 			
