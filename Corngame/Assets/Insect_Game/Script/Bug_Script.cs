@@ -23,8 +23,8 @@ public class Bug_Script : MonoBehaviour {
 	void Start () {
 		Bug_Type = 0;
 		Direction = 0;
-		Living_time = 5;
-		Bug_Movement_Speed = 0.025f;
+		Living_time = 10;
+		Bug_Movement_Speed = 0.05f;
 		Stop_Movement ();
 	}
 
@@ -40,7 +40,7 @@ public class Bug_Script : MonoBehaviour {
 				Bug_x -= Bug_Movement_Speed;
 			}
 			if (Direction == 3) {
-				Bug_y -= Bug_Movement_Speed;
+				Bug_y += Bug_Movement_Speed;
 			}
 		
 			Living_time -= Time.deltaTime;
@@ -51,8 +51,8 @@ public class Bug_Script : MonoBehaviour {
 
 			transform.position = new Vector2 (Bug_x, Bug_y);
 		} else {
-			Living_time = 5;
-			gameObject.SetActive (false);
+			/*Living_time = 10;
+			gameObject.SetActive (false);*/
 		}
 
 
@@ -103,7 +103,9 @@ public class Bug_Script : MonoBehaviour {
 	public void Randomize_Bug_Kind ()
 	{
 		//0 would be wasp 1 would be spyder
-		Bug_Type = Random.Range (0, 2);
+		//Bug_Type = Random.Range (0, 2);
+	
+		Bug_Type = 1;
 		if (Bug_Type == 0) {
 			Spider_Bug.SetActive (false);
 			Wasp_bug.SetActive(true);
@@ -130,6 +132,16 @@ public class Bug_Script : MonoBehaviour {
 
 			Stop_Movement ();
 		}
+
+
+		if (col.gameObject.name == "Endpoint") {
+			Debug.Log ("bug reached end return");
+
+			Living_time = 10;
+			gameObject.SetActive (false);
+
+		}
+
 	}
 
 
