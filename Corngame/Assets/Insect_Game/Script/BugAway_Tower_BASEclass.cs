@@ -9,7 +9,7 @@ public class BugAway_Tower_BASEclass {
 	public int Health
 	{
 		get { return Health; }
-		private set { Health = value; }
+		set { Health = value; }
 	}
 
 	public string TowerName
