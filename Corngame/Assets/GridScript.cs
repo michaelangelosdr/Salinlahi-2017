@@ -56,4 +56,5 @@ public class GridScript : MonoBehaviour {
 			RemoveTower ();
 		}
 	}
+		
 }

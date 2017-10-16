@@ -11,6 +11,7 @@ public class InsectGameController : MonoBehaviour {
 
 	public bool dragging;
 
+
 	public Vector3 offset;
 
 	void Start () {
@@ -29,7 +30,6 @@ public class InsectGameController : MonoBehaviour {
 	}
 
 	public void OnTowerChosen(int index) {
-
 		Debug.Log ("pota gumana ka");
 		indexChosen = index;
 		sampleTower.gameObject.SetActive (true);
