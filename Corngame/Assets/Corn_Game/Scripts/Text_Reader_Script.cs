@@ -6,15 +6,7 @@ using System.IO;
 
 public class Text_Reader_Script : MonoBehaviour {
 
-
-
-	string CornGametxt = "Assets/Corn_Game/info.txt";
-
-	//Assign your Info txt's location here
-
-	string MangoGameTxt;
-	string InsectGameTxt;
-
+	public string PathOfInfotxt;
 	[SerializeField] Text TextComponent;
 	List<string> Trivias;
 
@@ -40,7 +32,7 @@ public class Text_Reader_Script : MonoBehaviour {
 
 		Debug.Log ("Loading Trivia");
 		Trivias = new List<string> ();
-		StreamReader File = new StreamReader (CornGametxt);
+		StreamReader File = new StreamReader (PathOfInfotxt);
 			do{
 				string data;
 				data = File.ReadLine();
@@ -51,7 +43,7 @@ public class Text_Reader_Script : MonoBehaviour {
 			}while (!File.EndOfStream);
 				
 		Debug.Log ("Trivias entered: " + Trivias.Count);
-		File.Close ();
+		//File.Close ();
 
 	}
 
@@ -62,8 +54,8 @@ public class Text_Reader_Script : MonoBehaviour {
 	{
 
 		LoadTrivia ();
-
 		TextComponent.text = Trivias [Random.Range(0,Trivias.Count)];
+		Debug.Log ("done showing");
 		//Debug.Log("Giving text to text component");
 	}		
 }

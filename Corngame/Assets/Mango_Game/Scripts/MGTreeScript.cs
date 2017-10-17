@@ -8,6 +8,7 @@ public class MGTreeScript : MonoBehaviour {
 	[SerializeField] GameObject mangoes;
 	[SerializeField] GameObject speedUp;
 	[SerializeField] GameObject gameOverCanvas;
+	[SerializeField] Text_Reader_Script TriviaText;
 
 	[SerializeField] Animator treeAC;
 	[SerializeField] Animator ramonAC;
@@ -221,6 +222,7 @@ public class MGTreeScript : MonoBehaviour {
 
 		finalScoreUI.text = score.ToString ();
 		gameOverCanvas.SetActive (true);
+		TriviaText.SetTrivia ();
 	}
 
 	IEnumerator IncreaseDifficulty() {
