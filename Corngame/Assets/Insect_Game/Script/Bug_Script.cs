@@ -24,7 +24,7 @@ public class Bug_Script : MonoBehaviour {
 		Bug_Type = 0;
 		Direction = 0;
 		Living_time = 10;
-		Bug_Movement_Speed = 0.05f;
+		Bug_Movement_Speed = 0.025f;
 		Stop_Movement ();
 	}
 
@@ -60,10 +60,7 @@ public class Bug_Script : MonoBehaviour {
 
 
 	}
-
-
-
-
+		
 	public  void SummonBug(GameObject Point)
 	{		
 
@@ -142,8 +139,18 @@ public class Bug_Script : MonoBehaviour {
 
 		}
 
+		if (col.CompareTag ("Bullet")) {
+		
+			col.gameObject.SetActive (false);
+			GetDamaged ();
+		}
+
 	}
 
+	public void GetDamaged() {
+
+		gameObject.SetActive (false);
+	}
 
 	public void Stop_Movement()
 	{
