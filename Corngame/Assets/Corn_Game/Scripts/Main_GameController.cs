@@ -20,7 +20,7 @@ public class Main_GameController : MonoBehaviour {
 	[SerializeField] GameObject T_Text_1;
 	[SerializeField] GameObject T_Text_2;
 	[SerializeField] GameObject Corn_Boy;
-
+	[SerializeField] Text_Reader_Script TriviaScript;
 
 	int Tutorial_inc;
 	public bool AlreadyAdded;
@@ -40,10 +40,13 @@ public class Main_GameController : MonoBehaviour {
 	
 
 
+		#if UNITY_EDITOR
 		if (Input.GetKeyDown (KeyCode.R)) {
 			re_randomize ();
+			//For testing
+			TriviaScript.SetTrivia ();
 		}
-
+		#endif
 		if (score_scipt.Get_Score () % 30 == 0 && score_scipt.Get_Score() != 0) {
 			if (AlreadyAdded == false) {
 				TIMER_SCRIPT.Add_Time ();
@@ -138,6 +141,7 @@ public class Main_GameController : MonoBehaviour {
 		Main_Canvass.SetActive (false);
 		GameOver_Canvas.SetActive (true);
 		Score_text.GetComponent<Text> ().text = score_scipt.Get_Score ().ToString();
+		TriviaScript.SetTrivia ();
 	}
 
 }
