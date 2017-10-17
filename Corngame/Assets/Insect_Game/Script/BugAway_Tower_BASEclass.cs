@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BugAway_Tower_BASEclass {
+public class BugAway_Tower_BASEclass : MonoBehaviour {
 
+	public int health;
+	public int towerCost;
+	public string towerName;
+	public float attackSpeed;
+	public bool attacking;
 
+	public GameObject bullet;
 
 	public int Health
 	{
@@ -33,21 +39,33 @@ public class BugAway_Tower_BASEclass {
 
 	public BugAway_Tower_BASEclass()
 	{
-		Health = 1;
-		TowerName = "Basic Tower";
-		AttackSpeed = 1;
-		TowerCost = 10;
-
+		health = 1;
+		towerName = "Basic Tower";
+		attackSpeed = 1;
+		towerCost = 10;
 	}
 
 	public BugAway_Tower_BASEclass(int newHealth, string newTowerName, float newAttackSpeed, int newTowerCost)
 	{
-		Health = newHealth;
-		TowerName = newTowerName;
-		AttackSpeed = newAttackSpeed;
-		TowerCost = newTowerCost;
+		health = newHealth;
+		towerName = newTowerName;
+		attackSpeed = newAttackSpeed;
+		towerCost = newTowerCost;
 	}
 
+	public void StartAttacking() {
+
+		Debug.Log ("BASE: START ATTACKING");
+		attacking = true;
+
+		StartCoroutine (Attacking ());
+	}
+
+	public void StopAttacking() {
+
+		Debug.Log ("BASE: STOP ATTACKING");
+		attacking = false;
+	}
 
 	public void Shoot()
 	{
@@ -64,11 +82,18 @@ public class BugAway_Tower_BASEclass {
 
 	}
 
-
 	public void Upgrade()
 	{
 
 	}
-		
 
+	IEnumerator Attacking() {
+
+		while (attacking) {
+
+			Instantiate (bullet, transform.position, Quaternion.identity);
+
+			yield return new WaitForSeconds (attackSpeed);
+		}
+	}
 }

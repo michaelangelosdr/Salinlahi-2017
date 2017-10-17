@@ -31,8 +31,8 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
 	public void HoldTower(int Index)
 	{
-			image.sprite = sprites [Index];
-			TowerToSummon = TowerPrefabs [Index];
+		image.sprite = sprites [Index];
+		TowerToSummon = TowerPrefabs [Index];
 	}
 
 	public void Reset()
