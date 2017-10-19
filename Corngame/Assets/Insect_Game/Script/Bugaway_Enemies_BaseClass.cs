@@ -20,7 +20,12 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 
 	public virtual void Getdamaged()
 	{
-		Health -= 1;
+		if (Health > 1) {
+			Health -= 1;
+		} else {
+			KillBug (this.gameObject);
+		}
+
 	}
 
 	public void KillBug(GameObject thisbug)

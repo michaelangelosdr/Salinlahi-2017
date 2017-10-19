@@ -9,7 +9,7 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 	void Awake()
 	{
 		Debug.Log ("Summoned");
-		Health = 5;
+		Health = 4;
 		speed = 1;
 		Damage = 1;
 	}
@@ -33,7 +33,6 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 		}
 
 		if (col.CompareTag ("Bullet")) {
-
 			Debug.Log ("Aray");
 			Getdamaged ();
 		}

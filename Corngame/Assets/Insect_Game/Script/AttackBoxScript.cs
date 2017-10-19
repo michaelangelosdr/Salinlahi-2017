@@ -15,7 +15,6 @@ public class AttackBoxScript : MonoBehaviour {
 
 		if (!c.CompareTag ("Enemy"))
 			return;
-
 		tower.StartAttacking ();
 	}
 

@@ -12,31 +12,6 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
 	public GameObject bullet;
 
-	public int Health
-	{
-		get { return Health; }
-		set { Health = value; }
-	}
-
-	public string TowerName
-	{
-		get { return TowerName; }
-		set { TowerName = value; }
-	}
-
-	public float AttackSpeed
-	{
-		get { return AttackSpeed;}
-		set { AttackSpeed = value;}
-	}
-
-	public int TowerCost
-	{
-		get { return TowerCost; }
-		set { TowerCost = value; }
-	}
-
-
 	public BugAway_Tower_BASEclass()
 	{
 		health = 1;
@@ -66,18 +41,8 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 		Debug.Log ("BASE: STOP ATTACKING");
 		attacking = false;
 	}
-
-	public void Shoot()
-	{
-
-	}
-
+		
 	public void Die()
-	{
-
-	}
-
-	public void Spawn()
 	{
 
 	}

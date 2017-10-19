@@ -6,8 +6,15 @@ public class BugAwayBulletBase : MonoBehaviour {
 
 	public float speed;
 	
-	void Update () {
+	void FixedUpdate () {
 
 		transform.Translate (Vector3.down * speed * Time.deltaTime);
+	}
+
+	void OnTriggerEnter2D(Collider2D c) {
+
+		if (c.CompareTag ("Enemy"))
+			Destroy (gameObject);
+		
 	}
 }

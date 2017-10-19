@@ -62,24 +62,17 @@ public class Insect_Spawner : MonoBehaviour {
 		case 2:
 			Enemy1.name = "Tank Bug";
 			break;
-		}	
-
-
-
-
+		}
 
 	/*	Bugs [bug_Count].SetActive (true);
-		Bugs [bug_Count].GetComponent<Bug_Script> ().Randomize_Bug_Kind ();
+	//	Bugs [bug_Count].GetComponent<Bug_Script> ().Randomize_Bug_Kind ();
 	//	Bugs [bug_Count].GetComponent<Bug_Script> ().SummonBug (Bug_Spawn_points [G]);
-
 		//Increases next pool Object
-
 		if (bug_Count == Bugs.Count - 1) {
 			bug_Count = 0;
 		} else {
 			bug_Count++;
 		}*/
-
 	}
 
 

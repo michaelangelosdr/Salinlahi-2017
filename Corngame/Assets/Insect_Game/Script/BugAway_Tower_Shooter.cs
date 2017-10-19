@@ -5,31 +5,14 @@ using UnityEngine;
 public class BugAway_Tower_Shooter :BugAway_Tower_BASEclass {
 
 
-	public BugAway_Tower_Shooter()
+	void Awake()
 	{
-		Health = 1;
-		TowerName = "Wasp Shooter";
-		AttackSpeed = 1;
-		TowerCost = 10;
-	}
-
-
-	public new void Shoot()
-	{
-		Debug.Log (this.TowerName + "Shoots");
-	}
-
-	public new void Die()
-	{
-
+		health = 1; 
+		towerCost = 10;
+		towerName = "Wasp Shooter";
+		attackSpeed = 1;
 	}
 		
-
-	public new void Upgrade()
-	{
-
-
-	}
 
 
 }
