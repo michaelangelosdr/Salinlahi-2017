@@ -4,39 +4,18 @@ using UnityEngine;
 
 public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 
-	public int Damage
+	public int Damage;
+	public int Health;
+	public float speed;
+	public Vector2 StartPoint;
+	
+
+
+	public virtual void Move(Vector2 Position)
 	{
-		get { return Damage;}
-		set { Damage = value; }
-	}
-
-	public int Health
-	{
-		get { return Health; }
-		set { Health = value; }
-	}
-
-
-	public float speed
-	{
-		get { return speed; }
-		set { speed = value; }
-	}
-
-	public Vector2 V2pos
-	{
-		get { return V2pos; }
-		set { V2pos = value; }
-	}
-
-
-
-	public virtual void Move()
-	{
-
-		float yMovement = V2pos.y;
-		yMovement += speed;
-		transform.position = new Vector2 (V2pos.x, yMovement);
+		float yMovement = Position.y;
+		yMovement += speed/100;
+		transform.position = new Vector2 (Position.x, yMovement);
 	}
 
 	public virtual void Getdamaged()
@@ -54,5 +33,13 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	{
 		//Will this get eaten lolol
 	}
+
+	public virtual void SetStartPosition(Vector2 startPoint)
+	{
+		StartPoint = startPoint;
+
+	
+	}
+
 
 }

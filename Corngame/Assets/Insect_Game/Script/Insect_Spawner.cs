@@ -7,6 +7,9 @@ public class Insect_Spawner : MonoBehaviour {
 	public float Timer_Cap;
 	public float Timer_Count;
 	public int bug_Count;
+
+	public List<GameObject> Bug_Types;
+
 	public List<GameObject> Bug_Spawn_points;
 	public List<GameObject> Bugs;
 
@@ -44,9 +47,20 @@ public class Insect_Spawner : MonoBehaviour {
 
 		//randomizes Spawn point
 		int G = Random.Range (0, Bug_Spawn_points.Count);
-		Bugs [bug_Count].SetActive (true);
+
+
+		GameObject Enemy1 = Instantiate (Bug_Types [0], Bug_Spawn_points [G].transform.position, Quaternion.Euler(0,0,90)) as GameObject;
+		Enemy1.name = "Normal Bug";
+
+			
+
+
+
+
+
+	/*	Bugs [bug_Count].SetActive (true);
 		Bugs [bug_Count].GetComponent<Bug_Script> ().Randomize_Bug_Kind ();
-		Bugs [bug_Count].GetComponent<Bug_Script> ().SummonBug (Bug_Spawn_points [G]);
+	//	Bugs [bug_Count].GetComponent<Bug_Script> ().SummonBug (Bug_Spawn_points [G]);
 
 		//Increases next pool Object
 
@@ -54,7 +68,7 @@ public class Insect_Spawner : MonoBehaviour {
 			bug_Count = 0;
 		} else {
 			bug_Count++;
-		}
+		}*/
 
 	}
 
