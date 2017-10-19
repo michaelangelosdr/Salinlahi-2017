@@ -9,7 +9,6 @@ public class Insect_Spawner : MonoBehaviour {
 	public int bug_Count;
 
 	public List<GameObject> Bug_Types;
-
 	public List<GameObject> Bug_Spawn_points;
 	public List<GameObject> Bugs;
 
@@ -47,12 +46,23 @@ public class Insect_Spawner : MonoBehaviour {
 
 		//randomizes Spawn point
 		int G = Random.Range (0, Bug_Spawn_points.Count);
+		int TypeIndex = Random.Range (0, Bug_Types.Count);
 
 
-		GameObject Enemy1 = Instantiate (Bug_Types [0], Bug_Spawn_points [G].transform.position, Quaternion.Euler(0,0,90)) as GameObject;
-		Enemy1.name = "Normal Bug";
+		GameObject Enemy1 = Instantiate (Bug_Types [TypeIndex], Bug_Spawn_points [G].transform.position, Quaternion.Euler(0,0,90)) as GameObject;
 
-			
+		switch(TypeIndex)
+		{
+		case 0:
+			Enemy1.name = "Normal Bug";
+			break;
+		case 1:
+			Enemy1.name = "Fast Bug";
+			break;
+		case 2:
+			Enemy1.name = "Tank Bug";
+			break;
+		}	
 
 
 
