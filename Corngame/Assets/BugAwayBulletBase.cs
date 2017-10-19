@@ -9,5 +9,14 @@ public class BugAwayBulletBase : MonoBehaviour {
 	void Update () {
 
 		transform.Translate (Vector3.down * speed * Time.deltaTime);
+
+	}
+
+	IEnumerable DestroyBullet()
+	{
+
+		yield return new WaitForSeconds (3);
+		Destroy (gameObject);
+
 	}
 }
