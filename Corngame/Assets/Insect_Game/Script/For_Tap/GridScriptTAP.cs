@@ -18,11 +18,6 @@ public class GridScriptTAP : MonoBehaviour {
 	void Start () {
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 
 	public void ShowThisGrid()
@@ -38,7 +33,7 @@ public class GridScriptTAP : MonoBehaviour {
 	{
 		sr.sprite = null;
 	}
-
+		
 
 	void OnMouseDown()
 	{
@@ -47,7 +42,7 @@ public class GridScriptTAP : MonoBehaviour {
 		if(!Occupied)
 		{
 			Debug.Log (" Clicked this grid, Spawning tower ");
-			GMScript.GivePositionToSpawner (gameObject.transform.position);
+			GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString());
 			Occupied = true;
 			GMScript.TowerDeselected ();
 		}
