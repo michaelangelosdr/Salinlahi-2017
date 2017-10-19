@@ -15,6 +15,9 @@ public class TutorialScript : MonoBehaviour {
 		currentIndex = 0;
 		showing = true;
 		ShowPage ();
+
+		if (BGMScript.Instance != null)
+			BGMScript.Instance.audioSource.Stop ();
 	}
 
 	void Update() {
