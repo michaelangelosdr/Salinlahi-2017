@@ -14,13 +14,18 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public virtual void Move(Vector2 Position)
 	{
 		float yMovement = Position.y;
-		yMovement += speed/100;
+		yMovement += speed/50;
 		transform.position = new Vector2 (Position.x, yMovement);
 	}
 
 	public virtual void Getdamaged()
 	{
-		Health -= 1;
+		if (Health > 1) {
+			Health -= 1;
+		} else {
+			KillBug (this.gameObject);
+		}
+
 	}
 
 	public void KillBug(GameObject thisbug)

@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
-
-
+public class Bugaway_Enemies_FastBug : Bugaway_Enemies_BaseClass {
 
 	void Awake()
 	{
-		Debug.Log ("Summoned");
-		Health = 4;
-		speed = 1;
+		Health = 3;
+		speed = 2;
 		Damage = 1;
 	}
 
-
 	void FixedUpdate()
 	{
-		
 		Move (new Vector2(transform.position.x,transform.position.y));
 
 	}
 
+	public override void Move(Vector2 Position)
+	{
+		float yMovement = Position.y;
+		yMovement += speed/50;
+		transform.position = new Vector2 (Position.x, yMovement);
 
+	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -33,6 +34,7 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 		}
 
 		if (col.CompareTag ("Bullet")) {
+
 			Debug.Log ("Aray");
 			Getdamaged ();
 		}
