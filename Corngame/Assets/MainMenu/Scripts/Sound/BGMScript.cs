@@ -14,7 +14,7 @@ public class BGMScript : SoundScript {
 		}
 	}
 
-	AudioSource audioSource;
+	public AudioSource audioSource;
 
 	public AudioClip mainMenuClip;
 	public AudioClip CornGameClip;
