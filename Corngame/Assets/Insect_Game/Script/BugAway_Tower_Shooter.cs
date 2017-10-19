@@ -11,8 +11,6 @@ public class BugAway_Tower_Shooter :BugAway_Tower_BASEclass {
 		towerCost = 10;
 		towerName = "Wasp Shooter";
 		attackSpeed = 1;
-	}
-		
-
+	}		
 
 }
