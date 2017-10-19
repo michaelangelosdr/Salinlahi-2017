@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InsectGameControllerTAP : MonoBehaviour {
 
@@ -8,7 +9,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public List<GridScriptTAP> Grids;
 	public BugAway_TowerSpawn TowerHolder;
 
-
+	public List<Image> buttons; 
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +23,16 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	}
 
+	void ButtonTint(int index) {
+	
+		buttons [index].color = Color.grey;
+	}
 
+	void ResetButtonTints() {
 
+		foreach (Image i in buttons)
+			i.color = Color.white;
+	}
 
 	public void TowerSelected(int index)
 	{
@@ -31,7 +40,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		Selected = true;
 		ShowAvailableGrids ();
 		GiveTowerDataToHolder (index);
+
+		ButtonTint (index);
 	}
+
 	public void ShowAvailableGrids()
 	{
 		foreach (GridScriptTAP grid in Grids) {
@@ -44,6 +56,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void TowerDeselected()
 	{
+		Debug.Log ("Deselected");
+
+		ResetButtonTints ();
+
 		Selected = false;
 		foreach (GridScriptTAP grid in Grids) {
 			grid.HideThisGrid ();
