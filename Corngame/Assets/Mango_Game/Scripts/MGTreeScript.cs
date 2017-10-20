@@ -40,14 +40,15 @@ public class MGTreeScript : MonoBehaviour {
 	public float normalTimeScale;
 	public float hardTimeScale;
 
+	public int easyLimit;
+	public int normalLimit;
+	int hardLimit;
+
 	int score;
 
 	int previousGestureIndex = -1;
 	int currentGestureIndex = -1;
 	int currentLimit;
-	int easyLimit;
-	int normalLimit;
-	int hardLimit;
 
 	bool sprayable;
 	bool sprayed;
@@ -69,8 +70,6 @@ public class MGTreeScript : MonoBehaviour {
 		score = 0;
 		scoreUI.text = "0";
 
-		easyLimit = 4;
-		normalLimit = 6;
 		hardLimit = gestures.Count;
 
 		currentLimit = easyLimit;
@@ -102,11 +101,11 @@ public class MGTreeScript : MonoBehaviour {
 
 	void ChooseGesture() {
 
-		Debug.Log ("CHOOSE GESTURE");
+//		Debug.Log ("CHOOSE GESTURE");
 
 		if (previousGestureIndex == -1) {
 
-			Debug.Log ("Setting");
+//			Debug.Log ("Setting");
 
 			currentGestureIndex = Random.Range (0, currentLimit);
 			previousGestureIndex = currentGestureIndex;
@@ -115,7 +114,7 @@ public class MGTreeScript : MonoBehaviour {
 		
 			currentGestureIndex = Random.Range (0, currentLimit);
 
-			Debug.Log (previousGestureIndex + " : " + currentGestureIndex);
+//			Debug.Log (previousGestureIndex + " : " + currentGestureIndex);
 
 			while (previousGestureIndex == currentGestureIndex) {
 
@@ -214,7 +213,7 @@ public class MGTreeScript : MonoBehaviour {
 			transform.position = end.position;
 		}
 
-		Debug.Log ("game over");
+//		Debug.Log ("game over");
 
 		Time.timeScale = 1;
 

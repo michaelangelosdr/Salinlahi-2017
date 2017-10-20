@@ -14,8 +14,6 @@ public class BackgroundScript : MonoBehaviour {
 
 			Animator ac = t.GetComponent<Animator> ();
 
-			Debug.Log (ac);
-
 			if (ac != null)
 				animators.Add (ac);
 		}
