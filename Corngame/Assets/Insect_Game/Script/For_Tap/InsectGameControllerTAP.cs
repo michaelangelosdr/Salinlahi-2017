@@ -8,6 +8,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	private static InsectGameControllerTAP instance;
 
 	public bool Selected;
+	public bool removing;
 	public List<GridScriptTAP> Grids;
 	public BugAway_TowerSpawn TowerHolder;
 
@@ -50,6 +51,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	void ButtonTint(int index) {
 	
+		ResetButtonTints ();
 		buttons [index].color = Color.grey;
 	}
 
@@ -63,6 +65,12 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	{
 		if (plantingDone)
 			return;
+
+		if (Selected) {
+	
+			TowerDeselected ();
+			return;
+		}
 
 		Debug.Log ("Tower has been chosen");	
 		Selected = true;
@@ -105,7 +113,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		TowerHolder.HoldTower (towerType);
 	} 
 
-	public void GivePositionToSpawner(Vector3 spot,string Tagg,GameObject Grid)
+	public void GivePositionToSpawner(Vector3 spot,string Tagg,GridScriptTAP Grid)
 	{
 		Debug.Log (Tagg);
 		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd,Grid);
@@ -162,5 +170,18 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		}
 
 		Debug.Log ("GAME OVER!");
+	}
+
+	public void RemoveThing() {
+
+		if (removing)
+			Removed ();
+
+		removing = true;
+	}
+
+	public void Removed() {
+	
+		removing = false;
 	}
 }

@@ -12,7 +12,7 @@ public class GridScriptTAP : MonoBehaviour {
 	[SerializeField] Sprite GridGood;
 	[SerializeField] Sprite GridBad;
 
-
+	public GameObject tower;
 
 	// Use this for initialization
 	void Start () {
@@ -36,19 +36,31 @@ public class GridScriptTAP : MonoBehaviour {
 		
     public void Restore_Grid()
     {
-        Occupied = false;
+		Occupied = false;
+		Destroy (tower);
+
+		InsectGameControllerTAP.Instance.Removed ();
     }
 
 	void OnMouseDown()
 	{
-		//If Currency is good
-		//If Space is not occupied
-		if(!Occupied)
-		{
-			Debug.Log (" Clicked this grid, Spawning tower ");
-			GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString(),gameObject);
-			Occupied = true;
-			GMScript.TowerDeselected ();
+
+		if (InsectGameControllerTAP.Instance.Selected || InsectGameControllerTAP.Instance.removing) {
+
+			//If Currency is good
+			//If Space is not occupied
+			if(!Occupied)
+			{
+				Debug.Log (" Clicked this grid, Spawning tower ");
+				GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString(),this);
+				Occupied = true;
+				GMScript.TowerDeselected ();
+			}
+
+			if (Occupied && InsectGameControllerTAP.Instance.removing) {
+
+				Restore_Grid ();
+			}
 		}
 	}
 

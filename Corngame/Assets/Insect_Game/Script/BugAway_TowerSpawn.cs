@@ -26,7 +26,7 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 		image.sprite = null;
 		TowerToSummon = null;
 	}
-	public void SpawnTowerTo(Vector3 TowerSpot,string Tag,int TowerIndex,GameObject Grid)
+	public void SpawnTowerTo(Vector3 TowerSpot,string Tag,int TowerIndex,GridScriptTAP Grid)
 	{
         //Spawns towers here
         //Towerclone's name should be received from a new made gameobject. will edit this in the future
@@ -35,6 +35,8 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot, Quaternion.identity) as GameObject;
 
         TowerClone.GetComponent<BugAway_Tower_BASEclass>().SetGrid(Grid);
+		Grid.tower = TowerClone;
+
         switch (TowerIndex)
         {
             case 1: Tower_name = "Punching Sack";break;
