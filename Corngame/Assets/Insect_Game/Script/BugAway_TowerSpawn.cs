@@ -15,19 +15,6 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 	GameObject TowerToSummon;
 
 
-	// Use this for initialization
-	void Start () {
-
-
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
 
 	public void HoldTower(int Index)
 	{
@@ -39,13 +26,20 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 		image.sprite = null;
 		TowerToSummon = null;
 	}
-	public void SpawnTowerTo(Vector3 TowerSpot,string Tag)
+	public void SpawnTowerTo(Vector3 TowerSpot,string Tag,int TowerIndex)
 	{
-		//Spawns towers here
-		//Towerclone's name should be received from a new made gameobject. will edit this in the future
-		Debug.Log ("TowerPlaced");
+        //Spawns towers here
+        //Towerclone's name should be received from a new made gameobject. will edit this in the future
+        string Tower_name= "";
 		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot, Quaternion.identity) as GameObject;
-		TowerClone.name = "Summoned tower";
+        switch (TowerIndex)
+        {
+            case 0: Tower_name = "Punching Sack";break;
+            case 1: Tower_name = "Wasp shooter";break;
+            case 2: Tower_name = "Baygon";break;
+
+        }
+        TowerClone.name = Tower_name;
 		TowerClone.tag = Tag + "_tower";
 
 

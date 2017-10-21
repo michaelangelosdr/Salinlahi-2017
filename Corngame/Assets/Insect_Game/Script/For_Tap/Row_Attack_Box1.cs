@@ -6,43 +6,63 @@ public class Row_Attack_Box1 : MonoBehaviour {
 
 
 	GameObject[] row2_towers;
-	int Enemycounter;
+	int EnemyCounter;
 
 	void FixedUpdate()
 	{
 
-		row2_towers = GameObject.FindGameObjectsWithTag ("row2");
-		Debug.Log (Enemycounter);
+        row2_towers = GameObject.FindGameObjectsWithTag("row2_tower");
+        if (EnemyCounter > 0)
+        {
+            foreach (GameObject tower in row2_towers)
+            {
+                if (!tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().attacking)
+                    try
+                    {
+                        tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().StartAttacking();
+                    }
+                    catch
+                    {}
+                    }
+        }
+        else
+        {
 
-	}
+            try
+            {
+
+                foreach (GameObject tower in row2_towers)
+                {
+                    tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().StopAttacking();
+                }
+            }
+            catch
+            {
+
+
+            }
+        }
+
+    }
 
 		void OnTriggerEnter2D(Collider2D c) {
 
-			if (c.CompareTag ("Enemy"))
-		{
-			Enemycounter++;
-			Debug.Log ("Row 2 has enemies");
-			foreach (GameObject tower in row2_towers) {
+        if (c.CompareTag("Enemy"))
+        {
+            EnemyCounter++;
+        }
 
-					tower.gameObject.GetComponent<BugAway_Tower_Shooter> ().StartAttacking ();
-				
-			}
-
-		}
-			
-		}
+    }
 
 	void OnTriggerExit2D(Collider2D c)
 	{
-			if (c.CompareTag ("Enemy"))
-			{
-			Enemycounter--;
-			Debug.Log ("No Enemies");
+        if (c.CompareTag("Enemy"))
+        {
+            EnemyCounter--;
+        }
 
-			}
-		
 
-	}
+    }
 
 
 

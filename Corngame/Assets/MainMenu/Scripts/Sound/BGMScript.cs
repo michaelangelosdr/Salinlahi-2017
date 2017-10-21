@@ -66,7 +66,7 @@ public class BGMScript : SoundScript {
 
 	public void PlayCornGameBGM()
 	{
-		PlayClip (CornGameClip,0.1f);
+		PlayClip (CornGameClip,0.5f);
 	}
 
 	public void PlayMangoBGM() {
