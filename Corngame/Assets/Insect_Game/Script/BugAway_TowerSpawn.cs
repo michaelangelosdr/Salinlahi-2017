@@ -14,8 +14,6 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
 	GameObject TowerToSummon;
 
-
-
 	public void HoldTower(int Index)
 	{
 		image.sprite = sprites [Index];
@@ -38,16 +36,16 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 		Grid.tower = TowerClone;
 
         switch (TowerIndex)
-        {
+		{
+			case 0: Tower_name = "Wasp shooter";break;
             case 1: Tower_name = "Punching Sack";break;
-            case 0: Tower_name = "Wasp shooter";break;
             case 2: Tower_name = "Baygon";break;
 
         }
         TowerClone.name = Tower_name;
 		TowerClone.tag = Tag + "_tower";
 
-
+		InsectGameControllerTAP.Instance.ReduceSeeds (TowerIndex);
 	}
 
 

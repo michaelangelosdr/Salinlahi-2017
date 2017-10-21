@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GridScriptTAP : MonoBehaviour {
-
-
+	
 	private SpriteRenderer sr;
 	public bool Occupied;
 	public InsectGameControllerTAP GMScript;
@@ -18,7 +17,6 @@ public class GridScriptTAP : MonoBehaviour {
 	void Start () {
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 	}
-
 
 	public void ShowThisGrid()
 	{
