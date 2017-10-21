@@ -41,12 +41,12 @@ public class SoundUIScript : MonoBehaviour {
 	public void ShowSettingsPrefab() {
 
 		settingsShown = !settingsShown;
-
 		//Testtest
 		//This script makes all game objecs
 		try{
 			GameObject.Find("Corn_Field").GetComponent<Corn_Controller>().Corns_Tappable(!settingsShown);
-		}
+            GameObject.Find("Main Camera").GetComponent<timer_script>().TimerPauser(!settingsShown);
+        }
 		catch {
 			Debug.LogError ("ERROR NO CORN FIELD HERE, CAN CONTINUE THO");
 		}
