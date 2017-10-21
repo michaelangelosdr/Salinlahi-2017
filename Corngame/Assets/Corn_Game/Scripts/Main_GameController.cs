@@ -21,6 +21,7 @@ public class Main_GameController : MonoBehaviour {
 	[SerializeField] GameObject T_Text_2;
 	[SerializeField] GameObject Corn_Boy;
 	[SerializeField] Text_Reader_Script TriviaScript;
+    [SerializeField] Corngame_ParticleScript particlesscript;
 
 	int Tutorial_inc;
 	public bool AlreadyAdded;
@@ -75,6 +76,7 @@ public class Main_GameController : MonoBehaviour {
 	{
 		corn_Controller.Spawn_Corn ();
 		corn_Controller.Randomize_Corn (corn_Controller.Max_Rotten_Corn);
+        particlesscript.Spawn_Particles();
 	}
 
 
