@@ -38,10 +38,12 @@ public class PlayerDataLoaderScript : MonoBehaviour
             Debug.Log("No data yet, Adding data");
             PlayerPrefs.SetInt("AlreadyHasData", 1);
             foreach (string name in GameNames)
-            { PlayerPrefs.SetInt(name, 0); }
-
+            {
+                Debug.Log(name);
+                PlayerPrefs.SetInt(name, 0); }
+                PlayerPrefs.Save();
         }
-        PlayerPrefs.Save();
+        
     }
 
 

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverScript : MonoBehaviour {
 
 
     private string SceneName;
+    [SerializeField] GameObject triviaBox;
 
     private void Start()
     {
@@ -14,12 +16,12 @@ public class GameOverScript : MonoBehaviour {
     }
 
     public void Unlock() {
-        if(SceneName == "Corn_prototype")
-        {
-            GameObject.Find("Main Camera").GetComponent<Main_GameController>().Open_Trivia();
-        }
-
-
+        int TempScoreHolder = int.Parse( GameObject.Find(SceneName + "Score").GetComponent<Text>().text);
+        Debug.Log(TempScoreHolder);
+       
+        triviaBox.SetActive(true);
+        triviaBox.GetComponent<Trivia_Script>().GiveNewScore(TempScoreHolder);
+        gameObject.SetActive(false);
 	}
 
 	public void Replay() {

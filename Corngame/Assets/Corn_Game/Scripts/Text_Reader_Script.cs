@@ -30,7 +30,7 @@ public class Text_Reader_Script : MonoBehaviour {
 	void LoadTrivia()
 	{
 
-		Debug.Log ("Loading Trivia");
+		
 		Trivias = new List<string> ();
 		StreamReader File = new StreamReader (PathOfInfotxt);
 			do{
@@ -42,7 +42,7 @@ public class Text_Reader_Script : MonoBehaviour {
 
 			}while (!File.EndOfStream);
 				
-		Debug.Log ("Trivias entered: " + Trivias.Count);
+		
 		//File.Close ();
 
 	}
@@ -55,7 +55,6 @@ public class Text_Reader_Script : MonoBehaviour {
 
 		LoadTrivia ();
 		TextComponent.text = Trivias [Random.Range(0,Trivias.Count)];
-		Debug.Log ("done showing");
 		//Debug.Log("Giving text to text component");
 	}		
 }
