@@ -40,7 +40,7 @@ public class Row_Attack_Box : MonoBehaviour {
 
 		if (c.CompareTag ("Enemy"))
 		{
-			Debug.Log ("Bruh");
+//			Debug.Log ("Bruh");
 
 			EnemyCounter++;
 		}
