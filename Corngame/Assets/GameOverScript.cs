@@ -5,7 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour {
 
-	public void Unlock() {
+
+    private string SceneName;
+
+    private void Start()
+    {
+        SceneName = SceneManager.GetActiveScene().name;
+    }
+
+    public void Unlock() {
+        if(SceneName == "Corn_prototype")
+        {
+            GameObject.Find("Main Camera").GetComponent<Main_GameController>().Open_Trivia();
+        }
 
 
 	}
@@ -19,4 +31,9 @@ public class GameOverScript : MonoBehaviour {
 	
 		SceneManager.LoadScene ("Main_Menu");
 	}
+
+    
+
+
+
 }
