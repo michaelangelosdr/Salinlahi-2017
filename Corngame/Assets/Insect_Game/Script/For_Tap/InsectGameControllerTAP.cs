@@ -77,7 +77,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	{
 		//Tower data will be sent by index 
 		TowerHolder.HoldTower (towerType);
-	}
+	} 
 
 	public void GivePositionToSpawner(Vector3 spot,string Tagg,GameObject Grid)
 	{

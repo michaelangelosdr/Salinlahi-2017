@@ -17,24 +17,10 @@ public class Settings_Script_Dynamic : MonoBehaviour {
 
 
 
-	public void ButtonChecker()
-	{
-		if (Is_Closed) {
-			Open_Settings ();
-		} else {
-			Close_Settings ();
-		}
-	}
+	
 
 
 
-	public void Open_Settings()
-	{
-		SettingsPrefab.SetActive (true);
-		T_Script.Timer_Stop ();
-		Is_Closed = false;
-		Corn_Cont.Corns_Tappable (Is_Closed);
-	}
 		
 	public void Close_Settings()
 	{

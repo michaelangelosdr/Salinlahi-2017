@@ -38,7 +38,7 @@ public class timer_script : MonoBehaviour {
 
 				//Timer_Reset ();
 				M_gamecontroller.Is_GameOver();
-				Timer_Stop ();
+                TimerPauser(false);
 				Debug.Log ("Timer Done, Game Over");
 				//GameOver
 
@@ -49,9 +49,9 @@ public class timer_script : MonoBehaviour {
 		
 
 
-	public void Timer_Stop()
+	public void TimerPauser(bool DoPause)
 	{
-		timer_bool = false;
+		timer_bool = DoPause;
 	}
 
 	public void Timer_Reset()
