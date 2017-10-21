@@ -51,3 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790eb8f720d7f79478c6fb99c694040e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameNames:
+  - Corn_prototype
+  - Mango_Game
+  - Bug-Away_Tap

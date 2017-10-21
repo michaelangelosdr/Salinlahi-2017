@@ -5,37 +5,52 @@ using UnityEngine.SceneManagement;
 
 public class Trivia_Script : MonoBehaviour {
 
-    [SerializeField] List<int> CornGame_UnlockPoint;
-    [SerializeField] List<int> MangoGame_UnlockPoint;
-    [SerializeField] List<int> InsectGame_UnlockPoint;
-
-    [SerializeField] List<GameObject> Buttons;
-
+    
+    private string GameName;
     private int MaxGameScore;
     public int GameScore;
+    [SerializeField] GameObject GameOverCanvass;
+
+ 
+
     // Use this for initialization
-    void Start () {
-
-     MaxGameScore = PlayerDataLoaderScript.Instance.GetData(SceneManager.GetActiveScene().name.ToString());            
-        
-
-	}
-
-    public void UnlockButton(int ButtonIndex)
-    {
-        if (GameScore >  )
-        {
-            Debug.Log(gameObject.name);
-            gameObject.SetActive(false);
-        }
+    void OnEnable() {
+        StartCoroutine(WaitLungs());      
     }
-
     public void GiveNewScore(int score)
     {
         GameScore = score;
         if (GameScore > MaxGameScore)
         {
             PlayerDataLoaderScript.Instance.SaveGameData(SceneManager.GetActiveScene().name.ToString(), GameScore);
+        }
+    }
+
+    public void Close()
+    {
+        GameOverCanvass.SetActive(true);
+        gameObject.SetActive(false);
+
+    }
+
+
+    IEnumerator WaitLungs()
+    {
+        yield return new WaitForEndOfFrame();
+        GameName = SceneManager.GetActiveScene().name;
+        MaxGameScore = PlayerDataLoaderScript.Instance.GetData(GameName);
+
+        // MaxGameScore = PlayerDataLoaderScript.Instance.GetData(GameName);
+
+       
+
+        //Hide already unlocked buttons
+        foreach (Transform T in transform)
+        {
+
+            try { T.gameObject.GetComponent<Trivia_Points_unlocker>().Unlocker(MaxGameScore); }
+             catch { Debug.Log("LOL"); };
+
         }
     }
 }
