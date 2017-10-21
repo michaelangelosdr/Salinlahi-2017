@@ -11,7 +11,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     public bool attacking;
 
     public GameObject bullet;
-    private GameObject Grid;
+	private GridScriptTAP Grid;
 
     public BugAway_Tower_BASEclass()
     {
@@ -80,7 +80,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 		}
 	}
 
-    public void SetGrid(GameObject grid)
+	public void SetGrid(GridScriptTAP grid)
     {
         Grid = grid;
 
