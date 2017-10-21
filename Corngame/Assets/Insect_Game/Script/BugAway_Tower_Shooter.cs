@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BugAway_Tower_Shooter :BugAway_Tower_BASEclass {
 
-
 	void Awake()
 	{
 		health = 1; 
