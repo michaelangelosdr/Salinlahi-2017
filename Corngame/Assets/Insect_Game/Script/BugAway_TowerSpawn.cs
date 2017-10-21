@@ -7,12 +7,19 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
 	[SerializeField] Image image;
 
-
 	public List<Sprite> sprites;
 
 	public List<GameObject> TowerPrefabs;
 
 	GameObject TowerToSummon;
+
+	void Update() {
+
+		if (InsectGameControllerTAP.Instance.removing)
+			image.color = Color.gray;
+		else
+			image.color = Color.white;
+	}
 
 	public void HoldTower(int Index)
 	{
