@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class BugAway_Tower_BASEclass : MonoBehaviour {
 
-	public int health;
-	public int towerCost;
-	public string towerName;
-	public float attackSpeed;
-	public bool attacking;
+    public int health;
+    public int towerCost;
+    public string towerName;
+    public float attackSpeed;
+    public bool attacking;
 
-	public GameObject bullet;
+    public GameObject bullet;
 
-	public BugAway_Tower_BASEclass()
-	{
-		health = 1;
-		towerName = "Basic Tower";
-		attackSpeed = 1;
-		towerCost = 10;
-	}
+    public BugAway_Tower_BASEclass()
+    {
+        health = 1;
+        towerName = "Basic Tower";
+        attackSpeed = 1;
+        towerCost = 10;
+    }
 
-	public BugAway_Tower_BASEclass(int newHealth, string newTowerName, float newAttackSpeed, int newTowerCost)
-	{
-		health = newHealth;
-		towerName = newTowerName;
-		attackSpeed = newAttackSpeed;
-		towerCost = newTowerCost;
-	}
+    public BugAway_Tower_BASEclass(int newHealth, string newTowerName, float newAttackSpeed, int newTowerCost)
+    {
+        health = newHealth;
+        towerName = newTowerName;
+        attackSpeed = newAttackSpeed;
+        towerCost = newTowerCost;
+    }
 
-	public void StartAttacking() {
+    public void StartAttacking() {
         if (this.towerName == "Punching Sack")
         {
 
@@ -40,18 +40,28 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
             StartCoroutine(Attacking());
         }
-	}
+    }
 
-	public void StopAttacking() {
+    public void StopAttacking() {
 
-		Debug.Log ("BASE: STOP ATTACKING");
-		attacking = false;
-	}
-		
-	public void Die()
-	{
+        Debug.Log("BASE: STOP ATTACKING");
+        attacking = false;
+    }
 
-	}
+    public void Die()
+    {
+        Destroy(gameObject);
+        //Insert Particles Here
+    }
+
+    public void Damage_This_Tower()
+    {
+        //fuck you tower take that
+        if (health > 1)
+            health -= 1;
+        else
+            Die();
+    }
 
 	public void Upgrade()
 	{
