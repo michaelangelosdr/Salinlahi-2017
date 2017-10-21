@@ -31,6 +31,7 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public void KillBug(GameObject thisbug)
 	{
 		//DestroyMe
+		InsectGameControllerTAP.Instance.killCounter--;
 		Destroy (thisbug.gameObject);
 	}
 

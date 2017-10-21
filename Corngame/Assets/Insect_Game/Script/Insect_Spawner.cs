@@ -12,39 +12,21 @@ public class Insect_Spawner : MonoBehaviour {
 	public List<GameObject> Bug_Spawn_points;
 	public List<GameObject> Bugs;
 
+	public bool spawningBugs;
 
-
-
-	// Use this for initialization
 	void Start () {
 		bug_Count = 0;
 		Timer_Count = Timer_Cap;
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
+	public void StartRound(int enemyCount) {
 
-
-		Timer_Count -= Time.deltaTime;
-		if(Timer_Count <= 0)
-		{
-			Randomize_Spawn ();
-			Timer_Count = Timer_Cap;
-
-		}
-
+		StartCoroutine (StartSpawning (enemyCount));
 	}
-		
-
-
-
 
 	public void Randomize_Spawn()
 	{ 
 
-
-		//randomizes Spawn point
 		int G = Random.Range (0, Bug_Spawn_points.Count);
 		int TypeIndex = Random.Range (0, Bug_Types.Count);
 
@@ -75,7 +57,23 @@ public class Insect_Spawner : MonoBehaviour {
 		}*/
 	}
 
+	IEnumerator StartSpawning(int enemyCount) {
 
+		yield return null;
 
+		spawningBugs = true;
 
+		int currentCount = 0;
+
+		while(currentCount < enemyCount) {
+
+			yield return new WaitForSeconds (1 + Random.value);
+
+			Randomize_Spawn ();
+
+			currentCount++;
+		}
+
+		spawningBugs = false;
+	}
 }

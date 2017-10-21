@@ -31,6 +31,7 @@ public class BugAway_TowerSpawn : MonoBehaviour {
         //Spawns towers here
         //Towerclone's name should be received from a new made gameobject. will edit this in the future
         string Tower_name= "";
+
 		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot, Quaternion.identity) as GameObject;
 
         TowerClone.GetComponent<BugAway_Tower_BASEclass>().SetGrid(Grid);

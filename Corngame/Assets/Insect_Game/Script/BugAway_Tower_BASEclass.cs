@@ -36,7 +36,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
         }
         else
         {
-            Debug.Log("BASE: START ATTACKING");
+//            Debug.Log("BASE: START ATTACKING");
             attacking = true;
 
             StartCoroutine(Attacking());
@@ -44,7 +44,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     }
 
     public void StopAttacking() {
-        Debug.Log("BASE: STOP ATTACKING");
+//        Debug.Log("BASE: STOP ATTACKING");
         attacking = false;
     }
 

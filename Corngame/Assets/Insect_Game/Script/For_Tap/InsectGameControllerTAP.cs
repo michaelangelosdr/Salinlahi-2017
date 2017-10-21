@@ -5,24 +5,47 @@ using UnityEngine.UI;
 
 public class InsectGameControllerTAP : MonoBehaviour {
 
+	private static InsectGameControllerTAP instance;
+
 	public bool Selected;
 	public List<GridScriptTAP> Grids;
 	public BugAway_TowerSpawn TowerHolder;
 
+	public Insect_Spawner spawner;
+
 	public List<Image> buttons;
 
     private int towerInd;
+	public int enemiesToSpawn;
+	public int killCounter;
 
-	// Use this for initialization
+	public float plantingPhaseTimer;
+
+	bool plantingDone;
+
+	public EndpointScript endpoint;
+
+	public static InsectGameControllerTAP Instance {
+
+		get { 
+		
+			return instance;
+		}
+	}
+
 	void Start () {
 
-		Selected = false;
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+		instance = this;
 
+		Selected = false;
+
+		StartCoroutine (StartGame ());
+	}
+
+	void ResetValues() {
+
+		plantingDone = false;
+		enemiesToSpawn = killCounter = 5;
 	}
 
 	void ButtonTint(int index) {
@@ -38,6 +61,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void TowerSelected(int index)
 	{
+		if (plantingDone)
+			return;
+
 		Debug.Log ("Tower has been chosen");	
 		Selected = true;
 		ShowAvailableGrids ();
@@ -85,4 +111,56 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd,Grid);
 		Selected = false;
 	}	
+
+	IEnumerator StartGame() {
+
+		while (true) {
+		
+			yield return null;
+
+			ResetValues ();
+
+			Debug.Log ("Plant NOW!");
+
+			yield return new WaitForSeconds (plantingPhaseTimer);
+
+			Debug.Log ("STOP PLANTING");
+
+			plantingDone = true;
+
+			spawner.StartRound (5);
+
+			yield return new WaitForEndOfFrame ();
+
+			yield return new WaitUntil (() => !spawner.spawningBugs);
+
+			Debug.Log ("DONE SPAWNING");
+
+			bool gameOver = false;
+
+			while (true) {
+
+				if (endpoint.gameOver) {
+
+					gameOver = true;
+					break;
+				}
+
+				if (killCounter <= 0)
+					break;
+
+				yield return null;
+			}
+
+			if (gameOver) {
+				
+				break;
+			} else {
+
+				Debug.Log ("Well done!");
+			}
+		}
+
+		Debug.Log ("GAME OVER!");
+	}
 }
