@@ -36,13 +36,16 @@ public class Row_Attack_Box : MonoBehaviour {
 
 	}
 
-		void OnTriggerEnter2D(Collider2D c) {
-			if (c.CompareTag ("Enemy"))
+	void OnTriggerEnter2D(Collider2D c) {
+
+		if (c.CompareTag ("Enemy"))
 		{
+			Debug.Log ("Bruh");
+
 			EnemyCounter++;
 		}
 			
-		}
+	}
 
 	void OnTriggerExit2D(Collider2D c)
 	{
@@ -50,7 +53,4 @@ public class Row_Attack_Box : MonoBehaviour {
 			EnemyCounter--;
 		}
 	}
-
-
-
 }
