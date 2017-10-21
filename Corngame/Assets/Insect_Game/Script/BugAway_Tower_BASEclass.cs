@@ -10,8 +10,15 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     public float attackSpeed;
     public bool attacking;
 
+	PoolScript bulletPool;
+
     public GameObject bullet;
 	private GridScriptTAP Grid;
+
+	void Start() {
+	
+		bulletPool = GameObject.FindGameObjectWithTag ("Bullet Pool").GetComponent<PoolScript> ();
+	}
 
     public BugAway_Tower_BASEclass()
     {
@@ -73,8 +80,18 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 	IEnumerator Attacking() {
 
 		while (attacking) {
+			
+			GameObject newBullet = bulletPool.GetNext ();
 
-			Instantiate (bullet, new Vector3(transform.position.x, transform.position.y,0), Quaternion.identity);
+			if (newBullet) {
+
+				newBullet.transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
+				newBullet.transform.rotation = Quaternion.identity;
+				newBullet.SetActive (true);
+			} else {
+			
+				Debug.Log ("no bullet");
+			}
 
 			yield return new WaitForSeconds (attackSpeed);
 		}

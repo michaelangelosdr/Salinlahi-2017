@@ -32,7 +32,7 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	{
 		//DestroyMe
 		InsectGameControllerTAP.Instance.killCounter--;
-		Destroy (thisbug.gameObject);
+		thisbug.gameObject.SetActive (false);
 	}
 
 	public virtual void Eat_Tower()

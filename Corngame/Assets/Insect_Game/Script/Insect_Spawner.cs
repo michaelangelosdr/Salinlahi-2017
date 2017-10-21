@@ -12,6 +12,8 @@ public class Insect_Spawner : MonoBehaviour {
 	public List<GameObject> Bug_Spawn_points;
 	public List<GameObject> Bugs;
 
+	public List<PoolScript> pools;
+
 	public bool spawningBugs;
 
 	void Start () {
@@ -30,21 +32,25 @@ public class Insect_Spawner : MonoBehaviour {
 		int G = Random.Range (0, Bug_Spawn_points.Count);
 		int TypeIndex = Random.Range (0, Bug_Types.Count);
 
+//		GameObject Enemy1 = Instantiate (Bug_Types [TypeIndex], Bug_Spawn_points [G].transform.position, Quaternion.Euler(0,0,90)) as GameObject;
 
-		GameObject Enemy1 = Instantiate (Bug_Types [TypeIndex], Bug_Spawn_points [G].transform.position, Quaternion.Euler(0,0,90)) as GameObject;
+		GameObject newEnemy = pools [TypeIndex].GetNext ();
+		newEnemy.transform.position = Bug_Spawn_points [G].transform.position;
+		newEnemy.transform.rotation = Quaternion.Euler (0, 0, 90);
+		newEnemy.SetActive (true);
 
-		switch(TypeIndex)
-		{
-		case 0:
-			Enemy1.name = "Normal Bug";
-			break;
-		case 1:
-			Enemy1.name = "Fast Bug";
-			break;
-		case 2:
-			Enemy1.name = "Tank Bug";
-			break;
-		}
+//		switch(TypeIndex)
+//		{
+//		case 0:
+//			Enemy1.name = "Normal Bug";
+//			break;
+//		case 1:
+//			Enemy1.name = "Fast Bug";
+//			break;
+//		case 2:
+//			Enemy1.name = "Tank Bug";
+//			break;
+//		}
 
 	/*	Bugs [bug_Count].SetActive (true);
 	//	Bugs [bug_Count].GetComponent<Bug_Script> ().Randomize_Bug_Kind ();
