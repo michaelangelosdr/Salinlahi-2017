@@ -34,6 +34,10 @@ public class GridScriptTAP : MonoBehaviour {
 		sr.sprite = null;
 	}
 		
+    public void Restore_Grid()
+    {
+        Occupied = false;
+    }
 
 	void OnMouseDown()
 	{
@@ -42,7 +46,7 @@ public class GridScriptTAP : MonoBehaviour {
 		if(!Occupied)
 		{
 			Debug.Log (" Clicked this grid, Spawning tower ");
-			GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString());
+			GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString(),gameObject);
 			Occupied = true;
 			GMScript.TowerDeselected ();
 		}
