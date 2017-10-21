@@ -79,10 +79,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		TowerHolder.HoldTower (towerType);
 	}
 
-	public void GivePositionToSpawner(Vector3 spot,string Tagg)
+	public void GivePositionToSpawner(Vector3 spot,string Tagg,GameObject Grid)
 	{
 		Debug.Log (Tagg);
-		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd);
+		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd,Grid);
 		Selected = false;
 	}	
 }

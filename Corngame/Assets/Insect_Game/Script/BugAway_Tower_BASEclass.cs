@@ -11,6 +11,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     public bool attacking;
 
     public GameObject bullet;
+    private GameObject Grid;
 
     public BugAway_Tower_BASEclass()
     {
@@ -49,6 +50,8 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
     public void Die()
     {
+
+        Grid.GetComponent<GridScriptTAP>().Restore_Grid();
         Destroy(gameObject);
         //Insert Particles Here
     }
@@ -76,4 +79,10 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 			yield return new WaitForSeconds (attackSpeed);
 		}
 	}
+
+    public void SetGrid(GameObject grid)
+    {
+        Grid = grid;
+
+    }
 }

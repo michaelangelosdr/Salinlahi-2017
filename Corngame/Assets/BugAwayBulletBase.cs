@@ -12,10 +12,7 @@ public class BugAwayBulletBase : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D c) {
-
 		if (c.CompareTag ("Enemy") || c.gameObject.name == "Lower Bounds")
-			Destroy (gameObject);
-
-		
+			Destroy (gameObject);		
 	}
 }
