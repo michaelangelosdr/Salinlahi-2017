@@ -8,7 +8,7 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 
 	void Awake()
     { 
-		Health = 4;
+		Health = 5;
 		speed = 1;
 		Damage = 1;
 	}
