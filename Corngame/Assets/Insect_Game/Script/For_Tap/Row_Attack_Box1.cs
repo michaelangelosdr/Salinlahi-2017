@@ -45,10 +45,13 @@ public class Row_Attack_Box1 : MonoBehaviour {
 
     }
 
-		void OnTriggerEnter2D(Collider2D c) {
+	void OnTriggerEnter2D(Collider2D c) {
 
         if (c.CompareTag("Enemy"))
         {
+
+			Debug.Log ("Bruh");
+
             EnemyCounter++;
         }
 

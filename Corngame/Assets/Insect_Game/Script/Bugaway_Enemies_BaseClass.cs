@@ -8,8 +8,6 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public int Health;
 	public float speed;
 	public Vector2 StartPoint;
-	
-
 
 	public virtual void Move(Vector2 Position)
 	{
@@ -28,7 +26,7 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 
 	}
 
-	public void KillBug(GameObject thisbug)
+	public virtual void KillBug(GameObject thisbug)
 	{
 		//DestroyMe
 		InsectGameControllerTAP.Instance.killCounter--;

@@ -7,6 +7,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	private static InsectGameControllerTAP instance;
 
+	public BossBugScript bossBug;
+
 	public bool Selected;
 	public bool removing;
 	public List<GridScriptTAP> Grids;
@@ -23,11 +25,14 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public int currentSeeds;
 	public List<int> seedAmounts;
 
+	public int roundNumber;
+
 	public float plantingPhaseTimer;
 
 	bool plantingDone;
 
 	public EndpointScript endpoint;
+
 
 	public static InsectGameControllerTAP Instance {
 
@@ -133,6 +138,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	}	
 
 	IEnumerator StartGame() {
+		
+		roundNumber = 1;
 
 		while (true) {
 		
@@ -148,17 +155,27 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 			plantingDone = true;
 
-			spawner.StartRound (5);
-
-			yield return new WaitForEndOfFrame ();
-
-			yield return new WaitUntil (() => !spawner.spawningBugs);
-
-			Debug.Log ("DONE SPAWNING");
-
 			bool gameOver = false;
 
+			bool bossRound = roundNumber % 5 == 0;
+
+			if (bossRound) {
+
+				bossBug.gameObject.SetActive (true);
+			} else {
+				
+				spawner.StartRound (5);
+
+				yield return new WaitForEndOfFrame ();
+
+				yield return new WaitUntil (() => !spawner.spawningBugs);
+
+				Debug.Log ("DONE SPAWNING");
+			}
+
 			while (true) {
+
+//				Debug.Log ("Waiting " + Time.time);
 
 				if (endpoint.gameOver) {
 
@@ -167,6 +184,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 				}
 
 				if (killCounter <= 0)
+					break;
+
+				if (bossBug.killed && bossRound)
 					break;
 
 				yield return null;
@@ -178,6 +198,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			} else {
 
 				Debug.Log ("Well done!");
+
+				roundNumber++;
 			}
 		}
 
