@@ -34,8 +34,8 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot, Quaternion.identity) as GameObject;
         switch (TowerIndex)
         {
-            case 0: Tower_name = "Punching Sack";break;
-            case 1: Tower_name = "Wasp shooter";break;
+            case 1: Tower_name = "Punching Sack";break;
+            case 0: Tower_name = "Wasp shooter";break;
             case 2: Tower_name = "Baygon";break;
 
         }

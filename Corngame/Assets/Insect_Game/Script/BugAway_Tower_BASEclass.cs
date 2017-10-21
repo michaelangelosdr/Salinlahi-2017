@@ -43,7 +43,6 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     }
 
     public void StopAttacking() {
-
         Debug.Log("BASE: STOP ATTACKING");
         attacking = false;
     }
