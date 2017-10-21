@@ -10,15 +10,27 @@ public class Row_Attack_Box : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		row1_towers = GameObject.FindGameObjectsWithTag ("row1_tower");
-		if (EnemyCounter > 0) {
-			foreach (GameObject tower in row1_towers) {	
-				tower.gameObject.GetComponent<BugAway_Tower_Shooter> ().StartAttacking ();
-			}	
-		} else {
-			foreach (GameObject tower in row1_towers) {
-				tower.gameObject.GetComponent<BugAway_Tower_Shooter> ().StopAttacking ();
-			}	
+        row1_towers = GameObject.FindGameObjectsWithTag("row1_tower");
+        if (EnemyCounter > 0) {
+            foreach (GameObject tower in row1_towers) {
+                if (!tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().attacking)
+                    try { tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().StartAttacking(); }
+                    catch { }
+            }
+        } else {
+
+            try
+            { 
+
+            foreach (GameObject tower in row1_towers) {
+                tower.gameObject.GetComponent<BugAway_Tower_BASEclass>().StopAttacking();
+            }
+        }
+        catch
+        {
+
+
+        }
 		}
 
 

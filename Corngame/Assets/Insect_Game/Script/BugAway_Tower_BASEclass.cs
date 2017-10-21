@@ -29,11 +29,17 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 	}
 
 	public void StartAttacking() {
+        if (this.towerName == "Punching Sack")
+        {
 
-		Debug.Log ("BASE: START ATTACKING");
-		attacking = true;
+        }
+        else
+        {
+            Debug.Log("BASE: START ATTACKING");
+            attacking = true;
 
-		StartCoroutine (Attacking ());
+            StartCoroutine(Attacking());
+        }
 	}
 
 	public void StopAttacking() {
@@ -56,7 +62,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
 		while (attacking) {
 
-			Instantiate (bullet, transform.position, Quaternion.identity);
+			Instantiate (bullet, new Vector3(transform.position.x, transform.position.y,0), Quaternion.identity);
 
 			yield return new WaitForSeconds (attackSpeed);
 		}

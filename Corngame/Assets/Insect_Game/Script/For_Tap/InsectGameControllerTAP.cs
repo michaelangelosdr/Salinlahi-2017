@@ -9,7 +9,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public List<GridScriptTAP> Grids;
 	public BugAway_TowerSpawn TowerHolder;
 
-	public List<Image> buttons; 
+	public List<Image> buttons;
+
+    private int towerInd;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +43,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		ShowAvailableGrids ();
 		GiveTowerDataToHolder (index);
 
+        towerInd = index;
+
 		ButtonTint (index);
 	}
 
@@ -66,6 +70,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		}
 		TowerHolder.Reset ();
 
+        towerInd = 0;
 	}
 
 	public void GiveTowerDataToHolder(int towerType)
@@ -77,7 +82,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public void GivePositionToSpawner(Vector3 spot,string Tagg)
 	{
 		Debug.Log (Tagg);
-		TowerHolder.SpawnTowerTo (spot,Tagg);
+		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd);
 		Selected = false;
 	}	
 }

@@ -21,14 +21,13 @@ public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.name == "Endpoint") {
-
-			Debug.Log ("BUG IS OUT");
+	
 			KillBug (this.gameObject);
 		}
 
 		if (col.CompareTag ("Bullet")) {
 
-			Debug.Log ("Aray");
+	
 			Getdamaged ();
 		}
 
