@@ -162,6 +162,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			if (bossRound) {
 
 				bossBug.gameObject.SetActive (true);
+
+				roundNumber = 0;
 			} else {
 				
 				spawner.StartRound (5);
