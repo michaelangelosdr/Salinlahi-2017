@@ -210,8 +210,11 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void RemoveThing() {
 
-		if (removing)
+		if (removing) {
+
 			Removed ();
+			return;
+		}
 
 		removing = true;
 	}

@@ -18,6 +18,8 @@ public class TutorialScript : MonoBehaviour {
 
 		if (BGMScript.Instance != null)
 			BGMScript.Instance.audioSource.Stop ();
+
+		Time.timeScale = 0;
 	}
 
 	void Update() {
@@ -50,5 +52,7 @@ public class TutorialScript : MonoBehaviour {
 
 		showing = false;
 		gameObject.SetActive (false);
+
+		Time.timeScale = 1;
 	}
 }
