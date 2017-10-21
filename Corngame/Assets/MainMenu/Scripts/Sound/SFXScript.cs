@@ -58,6 +58,9 @@ public class SFXScript : SoundScript {
 		case "squeek":
 			PlayClip (CorngameSFXs [1], 1.0f);
 			break;
+            case "Shwing":
+                PlayClip(CorngameSFXs[2], 1.0f);
+                break;
 		}
 
 	}
