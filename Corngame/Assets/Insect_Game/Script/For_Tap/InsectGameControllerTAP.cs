@@ -84,5 +84,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		Debug.Log (Tagg);
 		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd,Grid);
 		Selected = false;
-	}	
+	}
+    
+
 }

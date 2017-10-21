@@ -43,13 +43,17 @@ public class SoundUIScript : MonoBehaviour {
 		settingsShown = !settingsShown;
 		//Testtest
 		//This script makes all game objecs
-		try{
-			GameObject.Find("Corn_Field").GetComponent<Corn_Controller>().Corns_Tappable(!settingsShown);
-            GameObject.Find("Main Camera").GetComponent<timer_script>().TimerPauser(!settingsShown);
+		try{           
+            GameObject.Find("Corn_Field").GetComponent<Corn_Controller>().Corns_Tappable(!settingsShown);
+            GameObject.Find("Main Camera").GetComponent<timer_script>().TimerPauser(!settingsShown);           
         }
 		catch {
-			Debug.LogError ("ERROR NO CORN FIELD HERE, CAN CONTINUE THO");
+			Debug.LogError ("This is not Corngame lol but pls continue");
 		}
+
+        try { GameObject.Find("Meter Container").GetComponent<MeterScript>().paused = settingsShown; }
+        catch { Debug.LogError("No Meter Container here lol"); }
+
 
 		settingsPrefab.SetActive (settingsShown);
 	}
