@@ -7,14 +7,14 @@ public class Corngame_ParticleScript : MonoBehaviour
     //SCript for calling PArticle
 
     [SerializeField] GameObject Exploding_Particles;
-    SFXScript sfxscript;
+    [SerializeField] SFXScript sfxscript;
 
 
     public void Spawn_Particles()
     {
         GameObject particle = Instantiate(Exploding_Particles, new Vector3(0, 0, -3), Quaternion.identity) as GameObject;
         particle.name = "Particle";
-
+        SFXScript.Instance.CornGamePlaySFX("Shwing");
     }
 
 
