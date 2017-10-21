@@ -20,6 +20,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public int enemiesToSpawn;
 	public int killCounter;
 
+	public int currentSeeds;
+	public List<int> seedAmounts;
+
 	public float plantingPhaseTimer;
 
 	bool plantingDone;
@@ -45,6 +48,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	void ResetValues() {
 
+		currentSeeds = 100;
 		plantingDone = false;
 		enemiesToSpawn = killCounter = 5;
 	}
@@ -63,6 +67,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void TowerSelected(int index)
 	{
+		if (currentSeeds < seedAmounts [index])
+			return;
+
 		if (plantingDone)
 			return;
 
@@ -80,6 +87,11 @@ public class InsectGameControllerTAP : MonoBehaviour {
         towerInd = index;
 
 		ButtonTint (index);
+	}
+
+	public void ReduceSeeds(int index) {
+	
+		currentSeeds -= seedAmounts [index];
 	}
 
 	public void ShowAvailableGrids()
