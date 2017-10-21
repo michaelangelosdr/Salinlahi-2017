@@ -34,9 +34,10 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 		Destroy (thisbug.gameObject);
 	}
 
-	public virtual void Eat()
+	public virtual void Eat_Tower()
 	{
 		//Will this get eaten lolol
+        //lol i was so wasted coding this changed the name from EAT to EAT_TOWER()
 	}
 
 	public virtual void SetStartPosition(Vector2 startPoint)

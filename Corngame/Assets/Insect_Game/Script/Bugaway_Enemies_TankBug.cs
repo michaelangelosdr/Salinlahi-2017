@@ -24,10 +24,12 @@ public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 	
 			KillBug (this.gameObject);
 		}
-
-		if (col.CompareTag ("Bullet")) {
-
-	
+        if (col.CompareTag("row1_tower") || col.CompareTag("row2_tower") || col.CompareTag("row3_tower"))
+        {
+            col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
+            KillBug(this.gameObject);
+        }
+        if (col.CompareTag ("Bullet")) {
 			Getdamaged ();
 		}
 
