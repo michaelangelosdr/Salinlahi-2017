@@ -30,6 +30,7 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
             col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
             KillBug(this.gameObject);
         }
+
 		if (col.CompareTag ("Bullet")) {
 			Getdamaged ();
 		}

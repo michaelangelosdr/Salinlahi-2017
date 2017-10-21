@@ -29,7 +29,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public float plantingPhaseTimer;
 
-	bool plantingDone;
+	public bool plantingDone;
 
 	public EndpointScript endpoint;
 

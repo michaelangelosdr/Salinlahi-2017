@@ -36,7 +36,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
         towerCost = newTowerCost;
     }
 
-    public void StartAttacking() {
+    public virtual void StartAttacking() {
         if (this.towerName == "Punching Sack")
         {
 
@@ -50,7 +50,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
         }
     }
 
-    public void StopAttacking() {
+    public virtual void StopAttacking() {
 //        Debug.Log("BASE: STOP ATTACKING");
         attacking = false;
     }
