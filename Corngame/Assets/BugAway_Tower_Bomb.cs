@@ -10,7 +10,7 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 	[SerializeField] SpriteRenderer sr;
 
-	[SerializeField] Animator ac;
+	[SerializeField] Animator bombAC;
 
 	void Start () {
 		
@@ -48,7 +48,7 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 //		Debug.Log ("START EXPLOSION? YES");
 
-		ac.SetTrigger ("explode");
+		bombAC.SetTrigger ("explode");
 	}
 
 	public void StartExploding() {
