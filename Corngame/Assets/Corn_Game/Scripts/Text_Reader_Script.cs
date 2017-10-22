@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.IO;
 
 public class Text_Reader_Script : MonoBehaviour {
@@ -9,7 +10,7 @@ public class Text_Reader_Script : MonoBehaviour {
 	public string PathOfInfotxt;
 	[SerializeField] Text TextComponent;
 	List<string> Trivias;
-
+	//[SerializeField] TextAsset Game_Trivias;
 
 
 	// Use this for initialization
@@ -20,6 +21,7 @@ public class Text_Reader_Script : MonoBehaviour {
 		for (int x = Trivias.Count-1; x >= 0; x--) {
 			Debug.Log (Trivias [x] + "Trivia count: " + x);
 		}*/
+
 	}
 
 
@@ -29,18 +31,21 @@ public class Text_Reader_Script : MonoBehaviour {
 	// please note that Spaces are still considered.
 	void LoadTrivia()
 	{
-
-		
+		//Debug.Log (Resources.Load (SceneManager.GetActiveScene ().name + "_info"));
 		Trivias = new List<string> ();
-		StreamReader File = new StreamReader (PathOfInfotxt);
-			do{
-				string data;
-				data = File.ReadLine();
-				string[] datas = data.Split('/');
 
-			Trivias.Add(datas[0]);
 
-			}while (!File.EndOfStream);
+			string data;
+			data = Resources.Load (SceneManager.GetActiveScene ().name + "_info").ToString();
+			string[] datas = data.Split('/');
+		Debug.Log (datas.Length);
+
+		for (int x = 0; x <=datas.Length-2; x++) {
+			Debug.Log (x);
+			Trivias.Add (datas [x]);
+		}
+
+
 				
 		
 		//File.Close ();
