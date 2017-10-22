@@ -23,12 +23,12 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
 	public void HoldTower(int Index)
 	{
-		image.sprite = sprites [Index];
+		//image.sprite = sprites [Index];
 		TowerToSummon = TowerPrefabs [Index];
 	}
 	public void Reset()
 	{
-		image.sprite = null;
+		//image.sprite = null;
 		TowerToSummon = null;
 	}
 	public void SpawnTowerTo(Vector3 TowerSpot,string Tag,int TowerIndex,GridScriptTAP Grid)
@@ -41,6 +41,9 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
         TowerClone.GetComponent<BugAway_Tower_BASEclass>().SetGrid(Grid);
 		Grid.tower = TowerClone;
+
+		if (TowerClone.GetComponent<BugAway_Tower_Bomb> ())
+			TowerClone.GetComponent<BugAway_Tower_Bomb> ().grid = Grid;
 
         switch (TowerIndex)
 		{

@@ -29,7 +29,9 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public virtual void KillBug(GameObject thisbug)
 	{
 		//DestroyMe
-		InsectGameControllerTAP.Instance.killCounter--;
+		if(InsectGameControllerTAP.Instance.plantingDone)
+			InsectGameControllerTAP.Instance.killCounter--;
+
 		thisbug.gameObject.SetActive (false);
 	}
 
