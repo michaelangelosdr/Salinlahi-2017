@@ -8,6 +8,10 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 	[SerializeField] GameObject hitBox;
 
+	[SerializeField] SpriteRenderer sr;
+
+	[SerializeField] Animator ac;
+
 	void Start () {
 		
 	}
@@ -16,6 +20,8 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 		exploding = false;
 		hitBox.SetActive (false);
+
+		sr.enabled = true;
 	}
 
 	void Update() {
@@ -35,23 +41,24 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 	public void Explode() {
 
-		Debug.Log ("IM CLICKED");
+//		Debug.Log ("IM CLICKED");
 
 		if (exploding || !InsectGameControllerTAP.Instance.plantingDone)
 			return;
 
 //		Debug.Log ("START EXPLOSION? YES");
 
-		StartCoroutine (GonnaExplode ());
+		ac.SetTrigger ("explode");
+	}
+
+	public void StartExploding() {
+	
+		StartCoroutine (GonnaExplode ());	
 	}
 
 	IEnumerator GonnaExplode() {
 
-//		Debug.Log ("Exploding");
-
-		yield return new WaitForSeconds (1f);
-
-//		Debug.Log ("NOW");
+		sr.enabled = false;
 
 		hitBox.gameObject.SetActive (true);
 
