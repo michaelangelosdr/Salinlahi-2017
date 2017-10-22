@@ -30,10 +30,17 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public float plantingPhaseTimer;
 
 	public bool plantingDone;
+	bool gaming;
 
 	public EndpointScript endpoint;
 
 	public Text seedText;
+	public Text score;
+	public Text roundUI;
+	public Text phaseUI;
+
+	public GameObject gameOverOverlay;
+	public GameObject tutorialOverlay;
 
 	public static InsectGameControllerTAP Instance {
 
@@ -45,11 +52,20 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	void Start () {
 
+		Time.timeScale = 1;
+
 		instance = this;
 
 		Selected = false;
 
 		StartCoroutine (StartGame ());
+
+		SetRoundText ();
+
+		gameOverOverlay.SetActive (false);
+		tutorialOverlay.SetActive (true);
+
+		SetPhaseText ("Planting");
 	}
 
 	void Update() {
@@ -59,9 +75,24 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	void ResetValues() {
 
+		SetRoundText ();
+
+		enemiesToSpawn = Mathf.Clamp (enemiesToSpawn, 0, 15);
+
 		currentSeeds = 100;
 		plantingDone = false;
-		enemiesToSpawn = killCounter = 5;
+		killCounter = enemiesToSpawn;
+
+	}
+
+	void SetRoundText() {
+
+		roundUI.text = "Wave " + roundNumber.ToString ();
+	}
+
+	void SetPhaseText(string s) {
+
+		phaseUI.text = "Phase: " + s;
 	}
 
 	void ButtonTint(int index) {
@@ -90,7 +121,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			return;
 		}
 
-		Debug.Log ("Tower has been chosen");	
+//		Debug.Log ("Tower has been chosen");	
 		Selected = true;
 		ShowAvailableGrids ();
 		GiveTowerDataToHolder (index);
@@ -117,7 +148,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void TowerDeselected()
 	{
-		Debug.Log ("Deselected");
+//		Debug.Log ("Deselected");
 
 		ResetButtonTints ();
 
@@ -138,7 +169,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void GivePositionToSpawner(Vector3 spot,string Tagg,GridScriptTAP Grid)
 	{
-		Debug.Log (Tagg);
+//		Debug.Log (Tagg);
 		TowerHolder.SpawnTowerTo (spot,Tagg,towerInd,Grid);
 		Selected = false;
 	}	
@@ -146,6 +177,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	IEnumerator StartGame() {
 		
 		roundNumber = 1;
+
+		gaming = true;
 
 		while (true) {
 		
@@ -155,9 +188,16 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 			Debug.Log ("Plant NOW!");
 
-			yield return new WaitForSeconds (plantingPhaseTimer);
+			for (int i = 0; i < plantingPhaseTimer; i++) {
+			
+				SetPhaseText ("Planting (" + (plantingPhaseTimer - i).ToString () + ")");
+
+				yield return new WaitForSeconds (1);
+			}
 
 			Debug.Log ("STOP PLANTING");
+
+			SetPhaseText ("Defense");
 
 			plantingDone = true;
 
@@ -169,14 +209,14 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 				bossBug.gameObject.SetActive (true);
 			} else {
-				
-				spawner.StartRound (5);
 
-				yield return new WaitForEndOfFrame ();
+				spawner.spawningBugs = true;
+
+				spawner.StartRound (enemiesToSpawn++);
 
 				yield return new WaitUntil (() => !spawner.spawningBugs);
 
-				Debug.Log ("DONE SPAWNING");
+//				Debug.Log ("DONE SPAWNING");
 			}
 
 			while (true) {
@@ -203,13 +243,32 @@ public class InsectGameControllerTAP : MonoBehaviour {
 				break;
 			} else {
 
-				Debug.Log ("Well done!");
+//				Debug.Log ("Well done!");
 
 				roundNumber++;
 			}
 		}
 
+		gaming = false;
+
+		GameOver ();
+	}
+
+	public void FastForward() {
+
+//		Debug.Log ("Fast Forward");
+
+		if (gaming && !removing)
+			Time.timeScale = Time.timeScale != 1 ? 1 : 3;
+	}
+
+	void GameOver() {
+
 		Debug.Log ("GAME OVER!");
+
+		Time.timeScale = 0;
+		score.text = (roundNumber - 1).ToString ();
+		gameOverOverlay.SetActive (true);
 	}
 
 	public void RemoveThing() {

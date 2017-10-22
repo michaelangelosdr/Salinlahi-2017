@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 
 
-	void Awake()
+	void OnEnable()
 	{
 		Health = 5;
 		speed = 1;
@@ -26,8 +26,12 @@ public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 		}
         if (col.CompareTag("row1_tower") || col.CompareTag("row2_tower") || col.CompareTag("row3_tower"))
         {
-            col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
-            KillBug(this.gameObject);
+
+			if (!col.GetComponent<BugAway_Tower_Bomb> ()) {
+
+				col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
+				KillBug(this.gameObject);
+			}
         }
         if (col.CompareTag ("Bullet")) {
 			Getdamaged ();

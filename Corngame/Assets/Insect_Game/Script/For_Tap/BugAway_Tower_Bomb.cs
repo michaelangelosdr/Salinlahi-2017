@@ -6,11 +6,13 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 	bool exploding;
 
-	[SerializeField] GameObject hitBox;
+	public GameObject hitBox;
 
-	[SerializeField] SpriteRenderer sr;
+	public SpriteRenderer sr;
 
-	[SerializeField] Animator bombAC;
+	public Animator bombAC;
+
+	public GridScriptTAP grid;
 
 	void Start () {
 		
@@ -64,6 +66,8 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 		yield return new WaitForSeconds (0.25f);
 
+		grid.Restore_Grid ();
+
 		Destroy (gameObject);
 	}
 
@@ -74,7 +78,7 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 		if (c.CompareTag ("Enemy")) {
 		
-			StartCoroutine (GonnaExplode ());
+			Explode ();
 		}
 	}
 }

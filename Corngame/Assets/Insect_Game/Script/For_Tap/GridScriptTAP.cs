@@ -37,9 +37,9 @@ public class GridScriptTAP : MonoBehaviour {
     public void Restore_Grid()
     {
 		Occupied = false;
-		Destroy (tower);
 
-		InsectGameControllerTAP.Instance.Removed ();
+		if(tower)
+			Destroy (tower);
     }
 
 	void OnMouseDown()
@@ -51,7 +51,7 @@ public class GridScriptTAP : MonoBehaviour {
 			//If Space is not occupied
 			if(!Occupied)
 			{
-				Debug.Log (" Clicked this grid, Spawning tower ");
+//				Debug.Log (" Clicked this grid, Spawning tower ");
 				GMScript.GivePositionToSpawner (gameObject.transform.position, this.gameObject.tag.ToString(),this);
 				Occupied = true;
 				GMScript.TowerDeselected ();
@@ -60,12 +60,15 @@ public class GridScriptTAP : MonoBehaviour {
 			if (Occupied && InsectGameControllerTAP.Instance.removing) {
 
 				Restore_Grid ();
+				InsectGameControllerTAP.Instance.Removed ();
 			}
 		}
 
 		if (InsectGameControllerTAP.Instance.plantingDone && !InsectGameControllerTAP.Instance.removing && tower && tower.GetComponent<BugAway_Tower_Bomb> ()) {
 		
-			tower.GetComponent<BugAway_Tower_Bomb> ().Explode ();		
+			tower.GetComponent<BugAway_Tower_Bomb> ().Explode ();	
+			tower = null;
+			Restore_Grid ();
 		}
 	}
 

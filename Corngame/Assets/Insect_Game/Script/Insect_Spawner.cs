@@ -65,19 +65,21 @@ public class Insect_Spawner : MonoBehaviour {
 
 	IEnumerator StartSpawning(int enemyCount) {
 
-		yield return null;
-
 		spawningBugs = true;
 
 		int currentCount = 0;
 
 		while(currentCount < enemyCount) {
-
+			
 			yield return new WaitForSeconds (1 + Random.value);
 
 			Randomize_Spawn ();
 
 			currentCount++;
+
+			Debug.Log ("Spawned " + currentCount);
+
+			yield return null;
 		}
 
 		spawningBugs = false;
