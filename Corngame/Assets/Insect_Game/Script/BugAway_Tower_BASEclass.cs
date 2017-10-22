@@ -15,6 +15,8 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
     public GameObject bullet;
 	private GridScriptTAP Grid;
 
+	public Animator ac;
+
 	void Start() {
 	
 		bulletPool = GameObject.FindGameObjectWithTag ("Bullet Pool").GetComponent<PoolScript> ();
@@ -36,6 +38,11 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
         towerCost = newTowerCost;
     }
 
+	void Update() {
+	
+		ac.SetBool ("attacking", attacking);
+	}
+
     public virtual void StartAttacking() {
         if (this.towerName == "Punching Sack")
         {
@@ -45,8 +52,6 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
         {
 //            Debug.Log("BASE: START ATTACKING");
             attacking = true;
-
-            StartCoroutine(Attacking());
         }
     }
 
@@ -54,6 +59,21 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 //        Debug.Log("BASE: STOP ATTACKING");
         attacking = false;
     }
+
+	public void Shoot() {
+
+		GameObject newBullet = bulletPool.GetNext ();
+
+		if (newBullet) {
+
+			newBullet.transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
+			newBullet.transform.rotation = Quaternion.identity;
+			newBullet.SetActive (true);
+		} else {
+
+			Debug.Log ("no bullet");
+		}
+	}
 
     public void Die()
     {
@@ -75,26 +95,6 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 	public void Upgrade()
 	{
 
-	}
-
-	IEnumerator Attacking() {
-
-		while (attacking) {
-			
-			GameObject newBullet = bulletPool.GetNext ();
-
-			if (newBullet) {
-
-				newBullet.transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
-				newBullet.transform.rotation = Quaternion.identity;
-				newBullet.SetActive (true);
-			} else {
-			
-				Debug.Log ("no bullet");
-			}
-
-			yield return new WaitForSeconds (attackSpeed);
-		}
 	}
 
 	public void SetGrid(GridScriptTAP grid)
