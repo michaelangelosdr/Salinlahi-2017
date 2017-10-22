@@ -33,9 +33,9 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 		// nothing
 	}
 
-	void OnMouseDown() {
+	public void Explode() {
 
-//		Debug.Log ("IM CLICKED");
+		Debug.Log ("IM CLICKED");
 
 		if (exploding || !InsectGameControllerTAP.Instance.plantingDone)
 			return;

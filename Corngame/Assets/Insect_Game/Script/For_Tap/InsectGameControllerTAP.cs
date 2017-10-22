@@ -33,6 +33,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public EndpointScript endpoint;
 
+	public Text seedText;
 
 	public static InsectGameControllerTAP Instance {
 
@@ -49,6 +50,11 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		Selected = false;
 
 		StartCoroutine (StartGame ());
+	}
+
+	void Update() {
+
+		seedText.text = currentSeeds + "\nSEEDS";
 	}
 
 	void ResetValues() {
@@ -162,8 +168,6 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			if (bossRound) {
 
 				bossBug.gameObject.SetActive (true);
-
-				roundNumber = 0;
 			} else {
 				
 				spawner.StartRound (5);
