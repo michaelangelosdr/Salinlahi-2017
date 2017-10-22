@@ -7,12 +7,19 @@ public class BugAway_TowerSpawn : MonoBehaviour {
 
 	[SerializeField] Image image;
 
-
 	public List<Sprite> sprites;
 
 	public List<GameObject> TowerPrefabs;
 
 	GameObject TowerToSummon;
+
+	void Update() {
+
+		if (InsectGameControllerTAP.Instance.removing)
+			image.color = Color.gray;
+		else
+			image.color = Color.white;
+	}
 
 	public void HoldTower(int Index)
 	{
@@ -30,7 +37,7 @@ public class BugAway_TowerSpawn : MonoBehaviour {
         //Towerclone's name should be received from a new made gameobject. will edit this in the future
         string Tower_name= "";
 
-		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot, Quaternion.identity) as GameObject;
+		GameObject TowerClone = Instantiate (TowerToSummon, TowerSpot + Vector3.back * 3, Quaternion.identity) as GameObject;
 
         TowerClone.GetComponent<BugAway_Tower_BASEclass>().SetGrid(Grid);
 		Grid.tower = TowerClone;

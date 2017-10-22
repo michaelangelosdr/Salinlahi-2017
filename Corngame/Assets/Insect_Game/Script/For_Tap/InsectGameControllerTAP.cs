@@ -29,7 +29,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public float plantingPhaseTimer;
 
-	bool plantingDone;
+	public bool plantingDone;
 
 	public EndpointScript endpoint;
 
@@ -210,8 +210,11 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public void RemoveThing() {
 
-		if (removing)
+		if (removing) {
+
 			Removed ();
+			return;
+		}
 
 		removing = true;
 	}
