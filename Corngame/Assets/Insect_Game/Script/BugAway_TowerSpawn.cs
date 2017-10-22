@@ -51,6 +51,7 @@ public class BugAway_TowerSpawn : MonoBehaviour {
         }
         TowerClone.name = Tower_name;
 		TowerClone.tag = Tag + "_tower";
+	
 
 		InsectGameControllerTAP.Instance.ReduceSeeds (TowerIndex);
 	}
