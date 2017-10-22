@@ -63,7 +63,7 @@ public class GridScriptTAP : MonoBehaviour {
 			}
 		}
 
-		if (!InsectGameControllerTAP.Instance.removing && tower.GetComponent<BugAway_Tower_Bomb> ()) {
+		if (InsectGameControllerTAP.Instance.plantingDone && !InsectGameControllerTAP.Instance.removing && tower && tower.GetComponent<BugAway_Tower_Bomb> ()) {
 		
 			tower.GetComponent<BugAway_Tower_Bomb> ().Explode ();		
 		}
