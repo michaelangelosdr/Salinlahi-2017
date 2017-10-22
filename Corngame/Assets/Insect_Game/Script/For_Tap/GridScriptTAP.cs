@@ -15,21 +15,23 @@ public class GridScriptTAP : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 	}
 
 	public void ShowThisGrid()
 	{
 		if (Occupied) {
-//			sr.sprite = GridBad;
+			sr.color = Color.white;
 		} else {
-			sr.sprite = GridGood;
+			sr.color = new Color (0.75f, 0.75f, 0.75f, 1);
 		}
 	}
 
 	public void HideThisGrid()
 	{
-		sr.sprite = null;
+
+		sr.color = Color.white;
 	}
 		
     public void Restore_Grid()
