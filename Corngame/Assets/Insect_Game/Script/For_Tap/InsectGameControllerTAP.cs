@@ -23,6 +23,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public int killCounter;
 
 	public int currentSeeds;
+	public int seedsToGive;
 	public List<int> seedAmounts;
 
 	public int roundNumber;
@@ -54,6 +55,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		Time.timeScale = 1;
 
+		seedsToGive = 100;
+
 		instance = this;
 
 		Selected = false;
@@ -77,9 +80,13 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		SetRoundText ();
 
-		enemiesToSpawn = Mathf.Clamp (enemiesToSpawn, 0, 15);
+		enemiesToSpawn = Mathf.Clamp (enemiesToSpawn, 0, 20);
 
-		currentSeeds = 100;
+		currentSeeds = seedsToGive;
+
+		if(seedsToGive > 60)
+			seedsToGive -= 10;
+		
 		plantingDone = false;
 		killCounter = enemiesToSpawn;
 
@@ -232,8 +239,13 @@ public class InsectGameControllerTAP : MonoBehaviour {
 				if (killCounter <= 0)
 					break;
 
-				if (bossBug.killed && bossRound)
+				if (bossBug.killed && bossRound) {
+				
+					if (bossBug.Health < 25)
+						bossBug.Health += 5;
+
 					break;
+				}
 
 				yield return null;
 			}
