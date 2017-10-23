@@ -55,7 +55,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		Time.timeScale = 1;
 
-		seedsToGive = 100;
+		seedsToGive = 50;
 
 		instance = this;
 

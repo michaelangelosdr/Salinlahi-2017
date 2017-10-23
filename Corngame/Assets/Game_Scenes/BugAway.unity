@@ -245,7 +245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Unlock for \n300 cured corn"
+  m_Text: "Unlock for \n50 waves cleared"
 --- !u!222 &4520294
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4113,7 +4113,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3fa1238470e3bd746af96c8d8667e2c3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2dc51976b6d4be9499070c02b319889a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -6789,7 +6789,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 936862188}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 99.99988, y: 400.36902, z: 0}
+  m_LocalPosition: {x: 99.99988, y: 399.16388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 579261704}
@@ -7170,7 +7170,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962396517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 122, y: 660.369, z: 0}
+  m_LocalPosition: {x: 122, y: 659.1639, z: 0}
   m_LocalScale: {x: 0.91452926, y: 0.91452914, z: 0.91452914}
   m_Children: []
   m_Father: {fileID: 579261704}
@@ -8673,7 +8673,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Unlock for \n200 cured corn"
+  m_Text: "Unlock for \n30 waves cleared"
 --- !u!222 &1167667734
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9294,8 +9294,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1292707246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.5, y: 241, z: 0}
-  m_LocalScale: {x: 0.3011111, y: 0.3011111, z: 0.3011111}
+  m_LocalPosition: {x: 149.5, y: 265.5, z: 0}
+  m_LocalScale: {x: 0.33222222, y: 0.33222222, z: 0.33222222}
   m_Children:
   - {fileID: 764899100}
   - {fileID: 579261704}
@@ -11265,6 +11265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1688675901}
   - component: {fileID: 1688675900}
+  - component: {fileID: 1688675902}
   m_Layer: 0
   m_Name: Scene Controller
   m_TagString: Untagged
@@ -11311,13 +11312,13 @@ MonoBehaviour:
   - {fileID: 1080445366}
   - {fileID: 769426161}
   - {fileID: 709051108}
-  enemiesToSpawn: 0
+  enemiesToSpawn: 1
   killCounter: 0
   currentSeeds: 0
   seedsToGive: 0
   seedAmounts: 0a000000140000001e000000
   roundNumber: 1
-  plantingPhaseTimer: 3
+  plantingPhaseTimer: 10
   plantingDone: 0
   endpoint: {fileID: 1834787149}
   seedText: {fileID: 936862190}
@@ -11339,6 +11340,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1688675902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1688675899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870df7e497c189c4f992d6e8044612bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TextComponent: {fileID: 2027835918}
 --- !u!1 &1702125818
 GameObject:
   m_ObjectHideFlags: 0
@@ -11983,7 +11996,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Unlock for \n100 cured corn"
+  m_Text: "Unlock for \n20 waves cleared"
 --- !u!222 &1777459184
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12175,6 +12188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOver: 0
+  TextReader: {fileID: 1688675902}
 --- !u!1 &1850793541
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,7 +12259,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: DR. RICARDO LANTICAN
+  m_Text: DR. CLARE BALTAZAR
 --- !u!222 &1850793544
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12533,7 +12547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1905757780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12695,12 +12709,12 @@ Prefab:
     - target: {fileID: 224421031878766294, guid: 1dfdbbe0f5a836f42a165565edba6f9c,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 135.5
+      value: 149.5
       objectReference: {fileID: 0}
     - target: {fileID: 224421031878766294, guid: 1dfdbbe0f5a836f42a165565edba6f9c,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 241
+      value: 265.5
       objectReference: {fileID: 0}
     - target: {fileID: 224421031878766294, guid: 1dfdbbe0f5a836f42a165565edba6f9c,
         type: 2}

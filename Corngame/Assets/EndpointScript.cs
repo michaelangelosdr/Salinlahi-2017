@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndpointScript : MonoBehaviour {
 
 	public bool gameOver;
+	[SerializeField] Text_Reader_Script TextReader;
 
 	void Start() {
 
@@ -13,7 +14,9 @@ public class EndpointScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D c) {
 	
-		if (c.CompareTag ("Enemy"))
+		if (c.CompareTag ("Enemy")) {
 			gameOver = true;
+			TextReader.SetTrivia ();
+		}
 	}
 }
