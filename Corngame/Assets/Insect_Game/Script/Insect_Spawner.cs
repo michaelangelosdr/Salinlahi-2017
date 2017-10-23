@@ -10,7 +10,7 @@ public class Insect_Spawner : MonoBehaviour {
 
 	public List<GameObject> Bug_Types;
 	public List<GameObject> Bug_Spawn_points;
-	public List<GameObject> Bugs;
+	//public List<GameObject> Bugs;
 
 	public List<PoolScript> pools;
 
