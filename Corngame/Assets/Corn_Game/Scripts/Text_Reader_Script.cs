@@ -7,7 +7,6 @@ using System.IO;
 
 public class Text_Reader_Script : MonoBehaviour {
 
-	public string PathOfInfotxt;
 	[SerializeField] Text TextComponent;
 	List<string> Trivias;
 	//[SerializeField] TextAsset Game_Trivias;
@@ -31,7 +30,7 @@ public class Text_Reader_Script : MonoBehaviour {
 	// please note that Spaces are still considered.
 	void LoadTrivia()
 	{
-		//Debug.Log (Resources.Load (SceneManager.GetActiveScene ().name + "_info"));
+		Debug.Log (Resources.Load (SceneManager.GetActiveScene ().name + "_info"));
 		Trivias = new List<string> ();
 
 
