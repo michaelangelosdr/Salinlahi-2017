@@ -83,10 +83,10 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 		if (col.CompareTag("row1_tower") || col.CompareTag("row2_tower") || col.CompareTag("row3_tower"))
 		{
 			col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
+			Getdamaged ();
 		}
 		if (col.CompareTag ("Bullet")) {
 			Getdamaged ();
 		}
-
 	}
 }
