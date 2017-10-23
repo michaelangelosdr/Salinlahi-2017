@@ -971,7 +971,7 @@ GameObject:
   - component: {fileID: 118866736}
   - component: {fileID: 118866735}
   m_Layer: 0
-  m_Name: Round Number
+  m_Name: Bug-Away_TapScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5753,6 +5753,48 @@ Transform:
   m_PrefabParentObject: {fileID: 4608034937229010, guid: 00c9c46b50adf2c4d837dbac98847c53,
     type: 2}
   m_PrefabInternal: {fileID: 881438696}
+--- !u!1001 &882943288
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 260.25604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 358.15573
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2.827852
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188714914554162, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 762af0fb8803ffc4b9f1a2545664f973, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &890086923
 GameObject:
   m_ObjectHideFlags: 0
@@ -7862,7 +7904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1132681062
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7877,7 +7919,7 @@ RectTransform:
   - {fileID: 665952360}
   - {fileID: 1177240459}
   m_Father: {fileID: 1292707250}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -7895,7 +7937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f44a4614bae5e6f4187b48ce33a44413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triviaBox: {fileID: 0}
+  triviaBox: {fileID: 1905757779}
 --- !u!1 &1145448110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7973,7 +8015,7 @@ GameObject:
   - component: {fileID: 1177240461}
   - component: {fileID: 1177240460}
   m_Layer: 0
-  m_Name: Score
+  m_Name: BugAwayScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8395,6 +8437,7 @@ RectTransform:
   - {fileID: 209911186}
   - {fileID: 1351845781}
   - {fileID: 327974426}
+  - {fileID: 1905757781}
   - {fileID: 1132681062}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -8526,6 +8569,57 @@ Transform:
   m_PrefabParentObject: {fileID: 4608034937229010, guid: 00c9c46b50adf2c4d837dbac98847c53,
     type: 2}
   m_PrefabInternal: {fileID: 1329662255}
+--- !u!1001 &1348441467
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1292707250}
+    m_Modifications:
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114166058705522988, guid: 9e37c6a8a96b9104ab054fe2915b0ec2,
+        type: 2}
+      propertyPath: GameOverCanvass
+      value: 
+      objectReference: {fileID: 1132681061}
+    - target: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 7.2990584
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9e37c6a8a96b9104ab054fe2915b0ec2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1351845780
 GameObject:
   m_ObjectHideFlags: 0
@@ -9092,15 +9186,10 @@ MonoBehaviour:
   - {fileID: 1381509264}
   - {fileID: 364635451}
   - {fileID: 14421974}
-  Bugs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   pools:
-  - {fileID: 959544706}
+  - {fileID: 460795476}
   - {fileID: 997919100}
   - {fileID: 905459867}
-  - {fileID: 460795476}
   spawningBugs: 0
 --- !u!4 &1483705176
 Transform:
@@ -10050,9 +10139,9 @@ MonoBehaviour:
   killCounter: 0
   currentSeeds: 0
   seedsToGive: 0
-  seedAmounts: 
-  roundNumber: 0
-  plantingPhaseTimer: 0
+  seedAmounts: 0a000000140000001e000000
+  roundNumber: 1
+  plantingPhaseTimer: 3
   plantingDone: 0
   endpoint: {fileID: 1834787149}
   seedText: {fileID: 936862190}
@@ -11049,6 +11138,16 @@ Transform:
   m_PrefabParentObject: {fileID: 4608034937229010, guid: 00c9c46b50adf2c4d837dbac98847c53,
     type: 2}
   m_PrefabInternal: {fileID: 1900915695}
+--- !u!1 &1905757779 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1114252653950518, guid: 9e37c6a8a96b9104ab054fe2915b0ec2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1348441467}
+--- !u!4 &1905757781 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4270089595997962, guid: 9e37c6a8a96b9104ab054fe2915b0ec2,
+    type: 2}
+  m_PrefabInternal: {fileID: 1348441467}
 --- !u!1 &1915004359
 GameObject:
   m_ObjectHideFlags: 0
