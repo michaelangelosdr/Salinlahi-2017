@@ -137,4 +137,5 @@ MonoBehaviour:
   CorngameSFXs:
   - {fileID: 8300000, guid: 439ebb8d0a7fa634b8b64843d0316a9a, type: 3}
   - {fileID: 8300000, guid: a8229f15c21e95f4786b122d674dc2c0, type: 3}
+  - {fileID: 8300000, guid: 93ece974c92112644a65fac09ce5d289, type: 3}
   mangoSpray: {fileID: 8300000, guid: 3f7720ec21c14c14abb79f4085217cec, type: 3}
