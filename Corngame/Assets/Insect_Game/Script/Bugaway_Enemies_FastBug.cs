@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bugaway_Enemies_FastBug : Bugaway_Enemies_BaseClass {
 
+	public InsectGameControllerTAP GMSCRIPT;
+
 	void OnEnable()
 	{
-		Health = 3;
+		Health = 3 + GMSCRIPT.HealthIncrement;
 		speed = 2;
 		Damage = 1;
 	}

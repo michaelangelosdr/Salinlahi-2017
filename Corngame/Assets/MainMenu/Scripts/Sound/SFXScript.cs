@@ -93,10 +93,10 @@ public class SFXScript : SoundScript {
 		case "tower1_shoot":
 			PlayClip (InsectGameSFXs [3], 0.8f);
 			break;
-		case "tower2_shoot":
+		case "tower2_shoot": //TODO: ADD TOWER SHOOT OR DEFENSE SFX
 			PlayClip (InsectGameSFXs [1], 0.8f);
 			break;
-		case "tower3_shoot":
+		case "tower3_shoot": //TODO: ADD EXPLOSION
 			PlayClip (InsectGameSFXs [5], 0.8f);
 			break;
 	

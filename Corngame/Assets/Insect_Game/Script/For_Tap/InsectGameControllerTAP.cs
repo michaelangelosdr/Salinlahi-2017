@@ -45,6 +45,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public GameObject gameOverOverlay;
 	public GameObject tutorialOverlay;
 
+	public float HealthIncrement;
+	public float SpeedIncrement;
+
 	public static InsectGameControllerTAP Instance {
 
 		get { 
@@ -57,11 +60,15 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		
 		Time.timeScale = 1;
 
-		seedsToGive = 50;
+		seedsToGive = 30;
 
 		instance = this;
 
 		Selected = false;
+
+		HealthIncrement = 0;
+		SpeedIncrement = 0;
+
 
 		StartCoroutine (StartGame ());
 
@@ -248,9 +255,13 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 				if (bossBug.killed && bossRound) {
 				
-					if (bossBug.Health < 25)
+					if (bossBug.Health < 25) {
 						bossBug.Health += 5;
-
+					}
+						HealthIncrement += 0.5f;
+						SpeedIncrement += 0.25f;
+					Debug.Log ("Increase now: " + HealthIncrement);
+					
 					break;
 				}
 

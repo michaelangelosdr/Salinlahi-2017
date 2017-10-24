@@ -40,7 +40,6 @@ public class Text_Reader_Script : MonoBehaviour {
 		//Debug.Log (datas.Length);
 
 		for (int x = 0; x <=datas.Length-2; x++) {
-			Debug.Log (x);
 			Trivias.Add (datas [x]);
 		}
 

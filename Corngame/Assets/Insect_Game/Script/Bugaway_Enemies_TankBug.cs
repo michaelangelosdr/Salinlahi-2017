@@ -5,11 +5,15 @@ using UnityEngine;
 public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 
 
+	public InsectGameControllerTAP GMSCRIPT;
+
+
 	void OnEnable()
 	{
-		Health = 5;
-		speed = 1;
+		Health = 5; 
+		speed = 1 + GMSCRIPT.SpeedIncrement;
 		Damage = 1;
+		Debug.Log (Health);
 	}
 
 	void FixedUpdate()

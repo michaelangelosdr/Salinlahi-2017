@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 
 	public int Damage;
-	public int Health;
+	public float Health;
 	public float speed;
 	public Vector2 StartPoint;
 
@@ -18,7 +18,7 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 
 	public virtual void Getdamaged()
 	{
-		if (Health > 1) {
+		if (Health >= 1) {
 			SFXScript.Instance.BugAwayPlaySFX ("Bug_Hit");
 			Health -= 1;
 		} else {
@@ -37,6 +37,9 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 		thisbug.gameObject.SetActive (false);
 
 	}
+		
+
+
 
 	public virtual void Eat_Tower()
 	{
