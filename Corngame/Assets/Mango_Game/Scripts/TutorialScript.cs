@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour {
 
@@ -16,8 +17,10 @@ public class TutorialScript : MonoBehaviour {
 		showing = true;
 		ShowPage ();
 
-		if (BGMScript.Instance != null)
+		if (BGMScript.Instance != null) {
+			if(SceneManager.GetActiveScene().name == "BugAway")
 			BGMScript.Instance.PlayBugAwayBGM ();
+		}
 
 		Time.timeScale = 0;
 	}
