@@ -45,6 +45,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	public GameObject gameOverOverlay;
 	public GameObject tutorialOverlay;
 
+	public float HealthIncrement;
+	public float SpeedIncrement;
+
 	public static InsectGameControllerTAP Instance {
 
 		get { 
@@ -57,11 +60,15 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		
 		Time.timeScale = 1;
 
-		seedsToGive = 50;
+		seedsToGive = 30;
 
 		instance = this;
 
 		Selected = false;
+
+		HealthIncrement = 0;
+		SpeedIncrement = 0;
+
 
 		StartCoroutine (StartGame ());
 
@@ -132,9 +139,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 //		Debug.Log ("Tower has been chosen");	
 		Selected = true;
+		removing = false;
 		ShowAvailableGrids ();
 		GiveTowerDataToHolder (index);
-
+		SFXScript.Instance.PlayOverallSFX ("tap");
         towerInd = index;
 
 		ButtonTint (index);
@@ -207,7 +215,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			Debug.Log ("STOP PLANTING");
 
 			SetPhaseText ("Defense");
-
+			TowerDeselected ();
+			removing = false;
 			plantingDone = true;
 
 			bool gameOver = false;
@@ -216,6 +225,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 			if (bossRound) {
 
+				BGMScript.Instance.PlayBugAwayBossFightBGM ();
 				bossBug.gameObject.SetActive (true);
 			} else {
 
@@ -224,6 +234,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 				spawner.StartRound (enemiesToSpawn++);
 
 				yield return new WaitUntil (() => !spawner.spawningBugs);
+
+
 
 //				Debug.Log ("DONE SPAWNING");
 			}
@@ -243,9 +255,13 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 				if (bossBug.killed && bossRound) {
 				
-					if (bossBug.Health < 25)
+					if (bossBug.Health < 25) {
 						bossBug.Health += 5;
-
+					}
+						HealthIncrement += 0.5f;
+						SpeedIncrement += 0.25f;
+					Debug.Log ("Increase now: " + HealthIncrement);
+					
 					break;
 				}
 
@@ -297,6 +313,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		}
 
 		removing = true;
+		TowerDeselected ();
 	}
 
 	public void Removed() {

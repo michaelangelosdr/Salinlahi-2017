@@ -139,4 +139,5 @@ MonoBehaviour:
   CornGameClip: {fileID: 8300000, guid: 049c963e78b93c144a7a0d9cb6e53e7f, type: 3}
   MangoBGM: {fileID: 8300000, guid: 815638cce0b87dc4e83ea70039a4e852, type: 3}
   BugAwayBGM: {fileID: 8300000, guid: db7778c074c814d42b65784656766606, type: 3}
+  BugAwayBOSSBGM: {fileID: 8300000, guid: cc8c49b5bc7a801459f2bba7f86f4860, type: 3}
   bgmClip: {fileID: 0}

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 
-
+	public InsectGameControllerTAP GMSCRIPT;
 
 	void OnEnable()
     { 
-		Health = 5;
-		speed = 1;
+		Health = 3 + GMSCRIPT.HealthIncrement;
+		speed = 1 + GMSCRIPT.SpeedIncrement;
 		Damage = 1;
 	}
 	void FixedUpdate()
