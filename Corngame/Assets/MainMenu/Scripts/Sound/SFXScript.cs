@@ -16,6 +16,8 @@ public class SFXScript : SoundScript {
 
 	AudioSource audioSource;
 	public List<AudioClip> CorngameSFXs;
+	public List<AudioClip> InsectGameSFXs;
+	public List<AudioClip> OverallSFX;
 	public AudioClip mangoSpray;
 
 	void Start() {
@@ -64,6 +66,34 @@ public class SFXScript : SoundScript {
 		}
 
 	}
+
+	public void PlayOverallSFX(string nameOfSFX)
+	{
+		switch (nameOfSFX) {
+		case "tap":
+			PlayClip (OverallSFX [0], 1.0f);
+			break;
+		}
+
+
+	}
+
+	public void BugAwayPlaySFX(string nameOfSFX)
+	{
+		switch (nameOfSFX) {
+		case "Bug_Summon":
+			PlayClip (InsectGameSFXs [0], 1.0f);
+			break;
+		case "Bug_Death":
+			PlayClip(InsectGameSFXs[1], 0.5f);
+			break;
+		case "Bug_Hit":
+			PlayClip (InsectGameSFXs [2], 0.8f);	
+			break;
+		}
+
+	}
+
 
 	public void PlayMangoSpray() {
 

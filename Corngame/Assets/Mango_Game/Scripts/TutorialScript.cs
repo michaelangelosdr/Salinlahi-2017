@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutorialScript : MonoBehaviour {
 
@@ -16,8 +17,10 @@ public class TutorialScript : MonoBehaviour {
 		showing = true;
 		ShowPage ();
 
-		if (BGMScript.Instance != null)
-			BGMScript.Instance.audioSource.Stop ();
+		if (BGMScript.Instance != null) {
+			if(SceneManager.GetActiveScene().name == "BugAway")
+			BGMScript.Instance.PlayBugAwayBGM ();
+		}
 
 		Time.timeScale = 0;
 	}
@@ -46,12 +49,16 @@ public class TutorialScript : MonoBehaviour {
 			go.SetActive (false);
 
 		pages [currentIndex].SetActive (true);
+		SFXScript.Instance.PlayOverallSFX ("tap");
 	}
 
 	public void CloseTutorial() {
 
 		showing = false;
 		gameObject.SetActive (false);
+
+
+		
 
 		Time.timeScale = 1;
 	}

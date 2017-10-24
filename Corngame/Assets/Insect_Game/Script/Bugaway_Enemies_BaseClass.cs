@@ -19,6 +19,7 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public virtual void Getdamaged()
 	{
 		if (Health > 1) {
+			SFXScript.Instance.BugAwayPlaySFX ("Bug_Hit");
 			Health -= 1;
 		} else {
 			KillBug (this.gameObject);
@@ -32,7 +33,9 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 		if(InsectGameControllerTAP.Instance.plantingDone)
 			InsectGameControllerTAP.Instance.killCounter--;
 
+		SFXScript.Instance.BugAwayPlaySFX ("Bug_Death");
 		thisbug.gameObject.SetActive (false);
+
 	}
 
 	public virtual void Eat_Tower()

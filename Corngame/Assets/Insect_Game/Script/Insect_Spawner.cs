@@ -38,6 +38,7 @@ public class Insect_Spawner : MonoBehaviour {
 		newEnemy.transform.position = Bug_Spawn_points [G].transform.position;
 		newEnemy.transform.rotation = Quaternion.Euler (0, 0, 90);
 		newEnemy.SetActive (true);
+		SFXScript.Instance.BugAwayPlaySFX ("Bug_Summon");
 
 //		switch(TypeIndex)
 //		{

@@ -54,7 +54,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 	}
 
 	void Start () {
-
+		
 		Time.timeScale = 1;
 
 		seedsToGive = 50;
@@ -69,12 +69,12 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		gameOverOverlay.SetActive (false);
 		tutorialOverlay.SetActive (true);
-		BGMScript.Instance.PlayBugAwayBGM ();
+
 		SetPhaseText ("Planting");
 	}
 
 	void Update() {
-
+		
 		seedText.text = currentSeeds + "\nSEEDS";
 	}
 
@@ -272,8 +272,11 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 //		Debug.Log ("Fast Forward");
 
-		if (gaming && !removing)
+		if (gaming && !removing) {
 			Time.timeScale = Time.timeScale != 1 ? 1 : 3;
+			BGMScript.Instance.IncreasePitch (Time.timeScale);
+		}
+
 	}
 
 	void GameOver() {
