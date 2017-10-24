@@ -142,6 +142,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 01c9c1cbe88d8124bbbc812f12600d89, type: 3}
   - {fileID: 8300000, guid: 7fdc94994dd5d00498944c405992b9b7, type: 3}
   - {fileID: 8300000, guid: 2e8f0c1f6ab91d042a2b1dea458eeb61, type: 3}
+  - {fileID: 8300000, guid: 69d23ce5cdee0d442b3e4507bc2c52fa, type: 3}
+  - {fileID: 8300000, guid: 2e8f0c1f6ab91d042a2b1dea458eeb61, type: 3}
+  - {fileID: 8300000, guid: 2e8f0c1f6ab91d042a2b1dea458eeb61, type: 3}
+  - {fileID: 8300000, guid: 3e4e33171af3d9041afe19a1ff7effcd, type: 3}
   OverallSFX:
   - {fileID: 8300000, guid: 32aa90826149fce4b82b2370311d1c53, type: 3}
   mangoSpray: {fileID: 8300000, guid: 3f7720ec21c14c14abb79f4085217cec, type: 3}

@@ -26,6 +26,8 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 
 		rb.velocity = Vector2.up * speed;
 
+		SFXScript.Instance.BugAwayPlaySFX ("Boss_BugSpawn");
+
 		StartCoroutine (Moving ());
 	}
 
@@ -71,6 +73,7 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 	public override void KillBug(GameObject thisbug) {
 	
 		killed = true;
+		BGMScript.Instance.PlayBugAwayBGM ();
 		base.KillBug (thisbug);
 	}
 

@@ -62,6 +62,7 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
 	public void Shoot() {
 
+		SFXScript.Instance.BugAwayPlaySFX ("tower1_shoot");
 		GameObject newBullet = bulletPool.GetNext ();
 
 		if (newBullet) {

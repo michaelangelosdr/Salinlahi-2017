@@ -20,6 +20,7 @@ public class BGMScript : SoundScript {
 	public AudioClip CornGameClip;
 	public AudioClip MangoBGM;
 	public AudioClip BugAwayBGM;
+	public AudioClip BugAwayBOSSBGM;
 	public AudioClip bgmClip;
 
 
@@ -79,6 +80,11 @@ public class BGMScript : SoundScript {
 	public void PlayBugAwayBGM()
 	{
 		PlayClip (BugAwayBGM, 0.5f);
+	}
+
+	public void PlayBugAwayBossFightBGM()
+	{
+		PlayClip (BugAwayBOSSBGM, 1.0f);
 	}
 
 	public void IncreasePitch(float pitch)

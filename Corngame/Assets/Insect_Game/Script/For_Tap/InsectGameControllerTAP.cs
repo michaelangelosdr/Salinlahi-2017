@@ -216,6 +216,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 			if (bossRound) {
 
+				BGMScript.Instance.PlayBugAwayBossFightBGM ();
 				bossBug.gameObject.SetActive (true);
 			} else {
 
@@ -224,6 +225,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 				spawner.StartRound (enemiesToSpawn++);
 
 				yield return new WaitUntil (() => !spawner.spawningBugs);
+
+
 
 //				Debug.Log ("DONE SPAWNING");
 			}

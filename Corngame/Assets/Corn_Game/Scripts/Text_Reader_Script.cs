@@ -30,14 +30,14 @@ public class Text_Reader_Script : MonoBehaviour {
 	// please note that Spaces are still considered.
 	void LoadTrivia()
 	{
-		Debug.Log (Resources.Load (SceneManager.GetActiveScene ().name + "_info"));
+		//Debug.Log (Resources.Load (SceneManager.GetActiveScene ().name + "_info"));
 		Trivias = new List<string> ();
 
 
 			string data;
 			data = Resources.Load (SceneManager.GetActiveScene ().name + "_info").ToString();
 			string[] datas = data.Split('/');
-		Debug.Log (datas.Length);
+		//Debug.Log (datas.Length);
 
 		for (int x = 0; x <=datas.Length-2; x++) {
 			Debug.Log (x);
