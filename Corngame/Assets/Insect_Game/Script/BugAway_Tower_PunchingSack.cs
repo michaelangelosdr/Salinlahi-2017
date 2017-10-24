@@ -12,6 +12,11 @@ public class BugAway_Tower_PunchingSack : BugAway_Tower_BASEclass {
         attackSpeed = 0;
     }
 
+	void Update() {
+
+
+	}
+
 	void OnTriggerEnter2D(Collider2D c) {
 
 		if (c.GetComponent<Bugaway_Enemies_BaseClass> ())
