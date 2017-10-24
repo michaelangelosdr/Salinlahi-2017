@@ -49,6 +49,7 @@ public class TutorialScript : MonoBehaviour {
 			go.SetActive (false);
 
 		pages [currentIndex].SetActive (true);
+		SFXScript.Instance.PlayOverallSFX ("tap");
 	}
 
 	public void CloseTutorial() {
