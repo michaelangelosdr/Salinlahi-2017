@@ -9,6 +9,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public BossBugScript bossBug;
 
+
+
 	public bool Selected;
 	public bool removing;
 	public List<GridScriptTAP> Grids;
@@ -67,7 +69,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		gameOverOverlay.SetActive (false);
 		tutorialOverlay.SetActive (true);
-
+		BGMScript.Instance.PlayBugAwayBGM ();
 		SetPhaseText ("Planting");
 	}
 

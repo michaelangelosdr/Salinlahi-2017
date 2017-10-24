@@ -19,6 +19,7 @@ public class BGMScript : SoundScript {
 	public AudioClip mainMenuClip;
 	public AudioClip CornGameClip;
 	public AudioClip MangoBGM;
+	public AudioClip BugAwayBGM;
 	public AudioClip bgmClip;
 
 
@@ -72,5 +73,9 @@ public class BGMScript : SoundScript {
 	public void PlayMangoBGM() {
 	
 		PlayClip (MangoBGM, 0.5f);
+	}
+	public void PlayBugAwayBGM()
+	{
+		PlayClip (BugAwayBGM, 0.5f);
 	}
 }
