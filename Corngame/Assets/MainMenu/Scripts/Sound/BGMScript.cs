@@ -83,6 +83,9 @@ public class BGMScript : SoundScript {
 
 	public void IncreasePitch(float pitch)
 	{
+		if (pitch == 3) {
+			pitch = 1.3f;
+		}
 		audioSource.pitch = pitch;
 	}
 }
