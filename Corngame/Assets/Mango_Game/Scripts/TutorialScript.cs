@@ -17,7 +17,7 @@ public class TutorialScript : MonoBehaviour {
 		ShowPage ();
 
 		if (BGMScript.Instance != null)
-			BGMScript.Instance.audioSource.Stop ();
+			BGMScript.Instance.PlayBugAwayBGM ();
 
 		Time.timeScale = 0;
 	}
@@ -52,6 +52,9 @@ public class TutorialScript : MonoBehaviour {
 
 		showing = false;
 		gameObject.SetActive (false);
+
+
+		
 
 		Time.timeScale = 1;
 	}

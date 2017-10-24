@@ -53,6 +53,8 @@ public class BGMScript : SoundScript {
 		audioSource.volume = volume;
 		audioSource.clip = newClip;
 		audioSource.Play ();
+
+		Debug.Log ("Playing hehe");
 	}
 
 	public void PlayMainMenu() {
@@ -77,5 +79,10 @@ public class BGMScript : SoundScript {
 	public void PlayBugAwayBGM()
 	{
 		PlayClip (BugAwayBGM, 0.5f);
+	}
+
+	public void IncreasePitch(float pitch)
+	{
+		audioSource.pitch = pitch;
 	}
 }
