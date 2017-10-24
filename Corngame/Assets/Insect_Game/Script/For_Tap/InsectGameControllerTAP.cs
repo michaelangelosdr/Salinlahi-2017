@@ -132,9 +132,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 //		Debug.Log ("Tower has been chosen");	
 		Selected = true;
+		removing = false;
 		ShowAvailableGrids ();
 		GiveTowerDataToHolder (index);
-
+		SFXScript.Instance.PlayOverallSFX ("tap");
         towerInd = index;
 
 		ButtonTint (index);
@@ -207,7 +208,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			Debug.Log ("STOP PLANTING");
 
 			SetPhaseText ("Defense");
-
+			TowerDeselected ();
+			removing = false;
 			plantingDone = true;
 
 			bool gameOver = false;
@@ -300,6 +302,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		}
 
 		removing = true;
+		TowerDeselected ();
 	}
 
 	public void Removed() {
