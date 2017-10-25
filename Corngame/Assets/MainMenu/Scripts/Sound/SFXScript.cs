@@ -19,8 +19,9 @@ public class SFXScript : SoundScript {
 	public List<AudioClip> InsectGameSFXs;
 	public List<AudioClip> OverallSFX;
 	public AudioClip mangoSpray;
+	public AudioClip transition;
 
-	void Start() {
+	void Awake() {
 
 		if (instance == null)
 			instance = this;
@@ -115,5 +116,10 @@ public class SFXScript : SoundScript {
 	public void PlayMangoSpray() {
 
 		PlayClip (mangoSpray, 0.0625f);
+	}
+
+	public void PlayTransition() {
+
+		PlayClip (transition, 0.75f);
 	}
 }

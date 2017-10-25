@@ -24,7 +24,7 @@ public class BGMScript : SoundScript {
 	public AudioClip bgmClip;
 
 
-	void Start() {
+	void Awake() {
 
 		if (instance == null)
 			instance = this;

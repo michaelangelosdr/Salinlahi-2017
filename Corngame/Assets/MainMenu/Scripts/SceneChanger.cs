@@ -15,15 +15,12 @@ public class SceneChanger : MonoBehaviour {
 		if (sceneName.Equals ("exit")) {
 		
 			#if UNITY_EDITOR
-
 			UnityEditor.EditorApplication.isPlaying = false;
 			return;
 			#endif
 
 			Application.Quit ();
 		}
-
-		SoundUIScript.Instance.Show (true);
 
 		SceneManager.LoadScene (sceneName);
 	}

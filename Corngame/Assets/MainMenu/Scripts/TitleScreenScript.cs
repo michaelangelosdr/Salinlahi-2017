@@ -35,6 +35,8 @@ public class TitleScreenScript : MonoBehaviour {
 
 	IEnumerator LoadNext()
 	{
+
+		SFXScript.Instance.PlayTransition ();
 		float fadetime = fadescript.BeginFade (1);
 		fadescript.StartFade ();
 		yield return new WaitForSeconds (fadetime);

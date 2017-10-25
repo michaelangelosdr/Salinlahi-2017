@@ -5,7 +5,7 @@ using UnityEngine;
 public class Overlay_Fade_Script : MonoBehaviour {
 
 	public Texture2D FadeOutTexture;
-	public float FadeSpeed = 0.8f;
+	public float FadeSpeed = 1.5f;
 
 	private int drawDepth = -1000;
 	private float alpha =0.0f;
