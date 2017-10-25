@@ -33,6 +33,9 @@ public class Main_GameController : MonoBehaviour {
 		TIMER_SCRIPT.TimerPauser(false);
 		BGMScript.Instance.PlayCornGameBGM ();
 
+
+		SoundUIScript.Instance.Show (true);
+		SoundUIScript.Instance.Portrait ();
 	}
 
 	

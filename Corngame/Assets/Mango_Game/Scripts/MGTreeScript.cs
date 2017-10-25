@@ -53,7 +53,7 @@ public class MGTreeScript : MonoBehaviour {
 	bool sprayable;
 	bool sprayed;
 
-	void Awake () {
+	void Start () {
 		
 		SimpleGesture.On4AxisSwipeUp (SwipeUp);
 		SimpleGesture.On4AxisSwipeDown (SwipeDown);
@@ -74,6 +74,9 @@ public class MGTreeScript : MonoBehaviour {
 
 		currentLimit = easyLimit;
 //		currentLimit = hardLimit;
+
+		SoundUIScript.Instance.Show (true);
+		SoundUIScript.Instance.Portrait ();
 
 		speedUp.gameObject.SetActive (false);
 		gameOverCanvas.SetActive (false);

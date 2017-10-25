@@ -67,6 +67,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		HealthIncrement = 0;
 		SpeedIncrement = 0;
 
+		SoundUIScript.Instance.Show (true);
 		SoundUIScript.Instance.Landscape ();
 
 		StartCoroutine (StartGame ());
