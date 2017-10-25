@@ -79,12 +79,12 @@ public class BGMScript : SoundScript {
 	}
 	public void PlayBugAwayBGM()
 	{
-		PlayClip (BugAwayBGM, 0.5f);
+		PlayClip (BugAwayBGM, 0.42f);
 	}
 
 	public void PlayBugAwayBossFightBGM()
 	{
-		PlayClip (BugAwayBOSSBGM, 1.0f);
+		PlayClip (BugAwayBOSSBGM, 0.69f);
 	}
 
 	public void IncreasePitch(float pitch)

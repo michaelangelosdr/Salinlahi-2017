@@ -9,8 +9,6 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public BossBugScript bossBug;
 
-
-
 	public bool Selected;
 	public bool removing;
 	public List<GridScriptTAP> Grids;
@@ -69,6 +67,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		HealthIncrement = 0;
 		SpeedIncrement = 0;
 
+		SoundUIScript.Instance.Landscape ();
 
 		StartCoroutine (StartGame ());
 
@@ -208,6 +207,9 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			for (int i = 0; i < plantingPhaseTimer; i++) {
 			
 				SetPhaseText ("Planting (" + (plantingPhaseTimer - i).ToString () + ")");
+
+				if (currentSeeds <= 0)
+					break;
 
 				yield return new WaitForSeconds (1);
 			}

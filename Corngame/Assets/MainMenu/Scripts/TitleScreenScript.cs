@@ -29,6 +29,7 @@ public class TitleScreenScript : MonoBehaviour {
 		}
 
 		SoundUIScript.Instance.Show (false);
+		SoundUIScript.Instance.Portrait ();
 	}
 
 

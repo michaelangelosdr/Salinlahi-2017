@@ -85,23 +85,27 @@ public class SFXScript : SoundScript {
 			PlayClip (InsectGameSFXs [0], 1.0f);
 			break;
 		case "Bug_Death":
-			PlayClip(InsectGameSFXs[1], 0.5f);
+			PlayClip(InsectGameSFXs[1], 0.25f);
 			break;
 		case "Bug_Hit":
-			PlayClip (InsectGameSFXs [2], 0.8f);	
+			PlayClip (InsectGameSFXs [2], 0.5f);	
 			break;
 		case "tower1_shoot":
 			PlayClip (InsectGameSFXs [3], 0.8f);
 			break;
 		case "tower2_shoot": //TODO: ADD TOWER SHOOT OR DEFENSE SFX
-			PlayClip (InsectGameSFXs [1], 0.8f);
+			PlayClip (InsectGameSFXs [7], 0.8f);
 			break;
-		case "tower3_shoot": //TODO: ADD EXPLOSION
-			PlayClip (InsectGameSFXs [5], 0.8f);
-			break;
-	
 		case "Boss_BugSpawn":
 			PlayClip (InsectGameSFXs [6], 1f);
+			break;
+		case "plantplace":
+			PlayClip (InsectGameSFXs [7], 1f);
+			PlayClip (InsectGameSFXs [7], 0.5f);
+			break;
+		case "explode":
+			PlayClip (InsectGameSFXs [8], 1f);
+			PlayClip (InsectGameSFXs [8], 1f);
 			break;
 		}
 

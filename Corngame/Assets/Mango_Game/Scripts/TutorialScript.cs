@@ -37,6 +37,8 @@ public class TutorialScript : MonoBehaviour {
 
 		currentIndex++;
 
+		SFXScript.Instance.PlayOverallSFX ("tap");
+
 		if (currentIndex >= pages.Count)
 			CloseTutorial ();
 		else
@@ -49,16 +51,12 @@ public class TutorialScript : MonoBehaviour {
 			go.SetActive (false);
 
 		pages [currentIndex].SetActive (true);
-		SFXScript.Instance.PlayOverallSFX ("tap");
 	}
 
 	public void CloseTutorial() {
 
 		showing = false;
 		gameObject.SetActive (false);
-
-
-		
 
 		Time.timeScale = 1;
 	}

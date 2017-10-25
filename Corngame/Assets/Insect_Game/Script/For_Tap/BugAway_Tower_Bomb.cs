@@ -8,8 +8,6 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 
 	public GameObject hitBox;
 
-	public SpriteRenderer sr;
-
 	public Animator bombAC;
 
 	public GridScriptTAP grid;
@@ -61,6 +59,8 @@ public class BugAway_Tower_Bomb : BugAway_Tower_BASEclass {
 	IEnumerator GonnaExplode() {
 
 		sr.enabled = false;
+
+		SFXScript.Instance.BugAwayPlaySFX ("explode");
 
 		hitBox.gameObject.SetActive (true);
 

@@ -55,6 +55,7 @@ public class BugAway_TowerSpawn : MonoBehaviour {
         TowerClone.name = Tower_name;
 		TowerClone.tag = Tag + "_tower";
 	
+		SFXScript.Instance.BugAwayPlaySFX("plantplace");
 
 		InsectGameControllerTAP.Instance.ReduceSeeds (TowerIndex);
 	}

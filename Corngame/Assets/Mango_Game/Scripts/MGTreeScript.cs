@@ -159,9 +159,9 @@ public class MGTreeScript : MonoBehaviour {
 
 		yield return new WaitForEndOfFrame ();
 
-		yield return new WaitUntil (() => !TutorialScript.showing);
-
 		BGMScript.Instance.PlayMangoBGM ();
+
+		yield return new WaitUntil (() => !TutorialScript.showing);
 
 		float timeElapsed;
 
