@@ -15,12 +15,13 @@ public class SoundUIScript : MonoBehaviour {
 	}
 
 	[SerializeField] GameObject settingsPrefab;
+	[SerializeField] GameObject settingsButton;
 
 	bool settingsShown;
 
 	float previousTimeScale = 0;
 
-	void Start () {
+	void Awake () {
 		
 		if (instance == null)
 			instance = this;
@@ -38,6 +39,44 @@ public class SoundUIScript : MonoBehaviour {
 	public void Show(bool b) {
 
 		gameObject.SetActive (b);
+	}
+
+	public void Landscape() {
+
+		RectTransform buttonRect = settingsButton.GetComponent<RectTransform> ();
+
+		buttonRect.anchoredPosition = new Vector2 (-5, 10);
+		buttonRect.rotation = Quaternion.Euler (0, 0, 90);
+		buttonRect.anchorMin = new Vector2 (1, 0);
+		buttonRect.anchorMax = new Vector2 (1, 0);
+		buttonRect.pivot = Vector2.zero;
+
+		RectTransform overlayRect = settingsPrefab.GetComponent<RectTransform> ();
+
+		overlayRect.anchoredPosition = Vector2.zero;
+		overlayRect.rotation = Quaternion.Euler (0, 0, -90);
+		overlayRect.anchorMin = new Vector2 (0.5f, 0.5f);
+		overlayRect.anchorMax = new Vector2 (0.5f, 0.5f);
+		overlayRect.pivot = new Vector2 (0.5f, 0.5f);
+	}
+
+	public void Portrait() {
+
+		RectTransform buttonRect = settingsButton.GetComponent<RectTransform> ();
+
+		buttonRect.anchoredPosition = new Vector2 (-5, -10);
+		buttonRect.rotation = Quaternion.Euler (0, 0, 0);
+		buttonRect.anchorMin = new Vector2 (1, 1);
+		buttonRect.anchorMax = new Vector2 (1, 1);
+		buttonRect.pivot = new Vector2 (1, 1);
+
+		RectTransform overlayRect = settingsPrefab.GetComponent<RectTransform> ();
+
+		overlayRect.anchoredPosition = Vector2.zero;
+		overlayRect.rotation = Quaternion.Euler (0, 0, 0);
+		overlayRect.anchorMin = new Vector2 (0.5f, 0.5f);
+		overlayRect.anchorMax = new Vector2 (0.5f, 0.5f);
+		overlayRect.pivot = new Vector2 (0.5f, 0.5f);
 	}
 
 	public void ShowSettingsPrefab() {

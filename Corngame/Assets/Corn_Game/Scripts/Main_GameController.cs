@@ -125,6 +125,8 @@ public class Main_GameController : MonoBehaviour {
 			T_Text_1.SetActive (false);
 			T_Text_2.SetActive (true);
 			Tutorial_inc++;
+
+
 		} else {
 			Tutorial_Canvass.SetActive (false);
 			Main_Canvass.SetActive (true);
@@ -133,6 +135,7 @@ public class Main_GameController : MonoBehaviour {
 			Tutorial_inc = 0;
 		}
 
+		SFXScript.Instance.PlayOverallSFX ("tap");
 
 	}
 

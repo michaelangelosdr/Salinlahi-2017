@@ -17,9 +17,13 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
 	public Animator ac;
 
+	public SpriteRenderer sr;
+
 	void Start() {
 	
 		bulletPool = GameObject.FindGameObjectWithTag ("Bullet Pool").GetComponent<PoolScript> ();
+
+		sr = GetComponentInChildren<SpriteRenderer> ();
 	}
 
     public BugAway_Tower_BASEclass()
@@ -86,12 +90,29 @@ public class BugAway_Tower_BASEclass : MonoBehaviour {
 
     public void Damage_This_Tower()
     {
+		SFXScript.Instance.BugAwayPlaySFX("plantplace");
+
         //fuck you tower take that
-        if (health > 1)
-            health -= 1;
-        else
-            Die();
+		if (health > 1) {
+		
+			StartCoroutine (Damaged ());
+			health -= 1;
+		} else {
+			Die ();
+		}
     }
+
+	IEnumerator Damaged() {
+
+		for (int i = 0; i < 2; i++) {
+		
+			sr.color = Color.red;
+
+			yield return new WaitForSeconds (0.25f);
+
+			sr.color = Color.white;
+		}
+	}
 
 	public void Upgrade()
 	{

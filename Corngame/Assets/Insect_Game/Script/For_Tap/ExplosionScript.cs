@@ -8,7 +8,10 @@ public class ExplosionScript : MonoBehaviour {
 
 		if (c.CompareTag ("Enemy")) {
 		
-			c.GetComponent<Bugaway_Enemies_BaseClass> ().KillBug (c.gameObject);
+			if (!c.GetComponent<BossBugScript> ())
+				c.GetComponent<Bugaway_Enemies_BaseClass> ().KillBug (c.gameObject);
+			else
+				c.GetComponent<BossBugScript> ().Getdamaged ();
 		}
 	}
 }

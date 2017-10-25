@@ -11,6 +11,7 @@ public class CharacterSelectScript : MonoBehaviour {
 	public void Start() {
 	
 		SoundUIScript.Instance.Show (false);
+		SoundUIScript.Instance.Portrait ();
 
 		currentCharacterIndex = 0;
 

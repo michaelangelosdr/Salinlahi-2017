@@ -14,6 +14,10 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 
 	Rigidbody2D rb;
 
+	public Animator ac;
+
+	public BugAway_Tower_BASEclass towerContact;
+
 	void OnEnable () {
 
 		killed = false;
@@ -26,9 +30,20 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 
 		rb.velocity = Vector2.up * speed;
 
-		SFXScript.Instance.BugAwayPlaySFX ("Boss_BugSpawn");
+		if(SFXScript.Instance)
+			SFXScript.Instance.BugAwayPlaySFX ("Boss_BugSpawn");
 
 		StartCoroutine (Moving ());
+	}
+
+	public void Move() {
+
+		rb.velocity = Vector2.up * speed;
+	}
+
+	public void Stop() {
+
+		rb.velocity = Vector2.zero;
 	}
 
 	IEnumerator Moving() {
@@ -61,6 +76,8 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 
 		while (timeElapsed < rowChangingSpeed) {
 		
+			yield return new WaitUntil (() => rb.velocity.magnitude > 0);
+
 			transform.position = new Vector3 (Mathf.Lerp (startX, endX, timeElapsed / rowChangingSpeed), transform.position.y, transform.position.z);
 			timeElapsed += Time.deltaTime;
 
@@ -85,11 +102,22 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 
 		if (col.CompareTag("row1_tower") || col.CompareTag("row2_tower") || col.CompareTag("row3_tower"))
 		{
-			col.GetComponent<BugAway_Tower_BASEclass>().Damage_This_Tower();
-			Getdamaged ();
+
+			if (!col.GetComponent<BugAway_Tower_Bomb> ()) {
+			
+				towerContact = col.GetComponent<BugAway_Tower_BASEclass> ();
+				ac.SetTrigger ("contact");
+				SFXScript.Instance.BugAwayPlaySFX ("Boss_BugSpawn");
+			}
 		}
 		if (col.CompareTag ("Bullet")) {
 			Getdamaged ();
 		}
+	}
+
+	public void KillTower() {
+
+		if (towerContact)
+			towerContact.Die ();
 	}
 }

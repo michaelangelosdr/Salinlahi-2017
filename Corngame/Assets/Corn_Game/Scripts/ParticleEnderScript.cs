@@ -16,8 +16,7 @@ public class ParticleEnderScript : MonoBehaviour {
     {
         if (!Particle_system.isPlaying)
         {
-	gameObject.SetActive (false);
-
+			gameObject.SetActive (false);
         }
     }
 
