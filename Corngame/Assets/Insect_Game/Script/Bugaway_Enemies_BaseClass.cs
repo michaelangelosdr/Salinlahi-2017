@@ -9,6 +9,15 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 	public float speed;
 	public Vector2 StartPoint;
 
+	PoolScript ParticlePool;
+
+	void Start()
+	{
+		
+		ParticlePool = GameObject.Find ("Particle_Pool").GetComponent<PoolScript>();
+	}
+
+
 	public virtual void Move(Vector2 Position)
 	{
 		float yMovement = Position.y;
@@ -32,8 +41,13 @@ public abstract class Bugaway_Enemies_BaseClass : MonoBehaviour {
 		//DestroyMe
 		if(InsectGameControllerTAP.Instance.plantingDone)
 			InsectGameControllerTAP.Instance.killCounter--;
-
+		
 		SFXScript.Instance.BugAwayPlaySFX ("Bug_Death");
+		GameObject newParticle = ParticlePool.GetNext ();
+
+		newParticle.transform.position = new Vector3 (transform.position.x, transform.position.y, -3);
+		newParticle.transform.rotation = Quaternion.identity;
+		newParticle.SetActive (true);
 		thisbug.gameObject.SetActive (false);
 
 	}

@@ -16,7 +16,7 @@ public class ParticleEnderScript : MonoBehaviour {
     {
         if (!Particle_system.isPlaying)
         {
-            Destroy(gameObject);
+	gameObject.SetActive (false);
 
         }
     }
