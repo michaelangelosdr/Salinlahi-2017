@@ -43,14 +43,17 @@ public class MainMenuController : MonoBehaviour {
 	}
 
 	IEnumerator StartPanning() {
-		
+
+		Debug.Log ("panning");
+
 		Vector3 startPos = cameraPointStart.position;
 		Vector3 endPos = cameraPointEnd.position;
-		float timeElapsed = 0;
 
 		camera.transform.position = startPos;
 
 		while (true) {
+			
+			Debug.Log ("panning rn");
 
 			yield return MoveCamera (startPos, endPos);
 			yield return MoveCamera (endPos, startPos);
@@ -74,8 +77,12 @@ public class MainMenuController : MonoBehaviour {
 
 	IEnumerator StartFading() {
 		
+		Debug.Log ("fading");
+
 		while (true) {
-		
+
+			Debug.Log ("fading rn");
+
 			yield return new WaitForSeconds (transitionTime);
 
 			bgs [currentIndex++].Fade (false, transitionSpeed);
@@ -95,7 +102,7 @@ public class MainMenuController : MonoBehaviour {
 		Color endColor = Color.clear;
 
 		while (timeElapsed < 1) {
-		
+			
 			overlay.color = Color.Lerp (startColor, endColor, timeElapsed / 1);
 
 			timeElapsed += Time.deltaTime;

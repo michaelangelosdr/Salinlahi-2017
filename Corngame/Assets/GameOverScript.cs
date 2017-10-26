@@ -10,6 +10,12 @@ public class GameOverScript : MonoBehaviour {
     private string SceneName;
     [SerializeField] GameObject triviaBox;
 
+	void OnEnable() {
+
+		Time.timeScale = 1;
+		BGMScript.Instance.SetPitch (1);
+	}
+
     private void Start()
     {
         SceneName = SceneManager.GetActiveScene().name;

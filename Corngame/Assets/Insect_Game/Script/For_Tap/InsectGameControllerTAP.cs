@@ -257,12 +257,10 @@ public class InsectGameControllerTAP : MonoBehaviour {
 					break;
 
 				if (bossBug.killed && bossRound) {
-				
-					if (bossBug.Health < 25) {
-						bossBug.Health += 5;
-					}
-						HealthIncrement += 0.5f;
-						SpeedIncrement += 0.25f;
+
+					HealthIncrement += 0.5f;
+					SpeedIncrement += 0.25f;
+
 					Debug.Log ("Increase now: " + HealthIncrement);
 					
 					break;
@@ -293,7 +291,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 		if (gaming && !removing) {
 			Time.timeScale = Time.timeScale != 1 ? 1 : 3;
-			BGMScript.Instance.IncreasePitch (Time.timeScale);
+			BGMScript.Instance.SetPitch (Time.timeScale != 1? 1.3f : 1);
 		}
 
 	}

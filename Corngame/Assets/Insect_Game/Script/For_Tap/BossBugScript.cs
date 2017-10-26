@@ -19,6 +19,10 @@ public class BossBugScript : Bugaway_Enemies_BaseClass {
 	public BugAway_Tower_BASEclass towerContact;
 
 	void OnEnable () {
+		
+		Health = 10 + InsectGameControllerTAP.Instance.HealthIncrement; 
+		speed = 1 + InsectGameControllerTAP.Instance.SpeedIncrement;
+		Damage = 1;
 
 		killed = false;
 
