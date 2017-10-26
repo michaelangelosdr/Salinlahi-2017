@@ -8,7 +8,7 @@ public class Bugaway_Enemies_WaspShooter : Bugaway_Enemies_BaseClass {
 
 	void OnEnable()
     { 
-		Health = 3 + GMSCRIPT.HealthIncrement;
+		Health = 2 + GMSCRIPT.HealthIncrement;
 		speed = 1 + GMSCRIPT.SpeedIncrement;
 		Damage = 1;
 	}
