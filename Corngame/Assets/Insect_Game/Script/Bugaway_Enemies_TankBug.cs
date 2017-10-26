@@ -10,10 +10,10 @@ public class Bugaway_Enemies_TankBug : Bugaway_Enemies_BaseClass {
 
 	void OnEnable()
 	{
-		Health = 5; 
+		Health = 4; 
 		speed = 1 + GMSCRIPT.SpeedIncrement;
 		Damage = 1;
-		Debug.Log (Health);
+
 	}
 
 	void FixedUpdate()

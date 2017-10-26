@@ -8,7 +8,7 @@ public class Bugaway_Enemies_FastBug : Bugaway_Enemies_BaseClass {
 
 	void OnEnable()
 	{
-		Health = 3 + GMSCRIPT.HealthIncrement;
+		Health = 2 + GMSCRIPT.HealthIncrement;
 		speed = 2;
 		Damage = 1;
 	}
