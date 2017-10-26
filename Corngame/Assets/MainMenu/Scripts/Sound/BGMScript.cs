@@ -87,11 +87,9 @@ public class BGMScript : SoundScript {
 		PlayClip (BugAwayBOSSBGM, 0.69f);
 	}
 
-	public void IncreasePitch(float pitch)
+	public void SetPitch(float pitch)
 	{
-		if (pitch == 3) {
-			pitch = 1.3f;
-		}
+		
 		audioSource.pitch = pitch;
 	}
 }
