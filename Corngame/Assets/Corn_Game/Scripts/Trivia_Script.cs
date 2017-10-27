@@ -48,8 +48,8 @@ public class Trivia_Script : MonoBehaviour {
         foreach (Transform T in transform)
         {
 
-            try { T.gameObject.GetComponent<Trivia_Points_unlocker>().Unlocker(MaxGameScore); }
-             catch { Debug.Log("LOL"); };
+			try { T.gameObject.GetComponent<Trivia_Points_unlocker>().Unlocker(MaxGameScore); }
+			catch { Debug.Log(MaxGameScore); };
 
         }
     }
