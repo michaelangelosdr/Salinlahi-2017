@@ -11,6 +11,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 	public bool Selected;
 	public bool removing;
+	public bool gameOver;
 	public List<GridScriptTAP> Grids;
 	public BugAway_TowerSpawn TowerHolder;
 
@@ -222,8 +223,6 @@ public class InsectGameControllerTAP : MonoBehaviour {
 			removing = false;
 			plantingDone = true;
 
-			bool gameOver = false;
-
 			bool bossRound = roundNumber % 5 == 0;
 
 			if (bossRound) {
@@ -247,9 +246,8 @@ public class InsectGameControllerTAP : MonoBehaviour {
 
 //				Debug.Log ("Waiting " + Time.time);
 
-				if (endpoint.gameOver) {
+				if (gameOver) {
 
-					gameOver = true;
 					break;
 				}
 
