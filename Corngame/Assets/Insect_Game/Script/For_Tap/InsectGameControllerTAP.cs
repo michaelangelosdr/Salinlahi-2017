@@ -64,6 +64,7 @@ public class InsectGameControllerTAP : MonoBehaviour {
 		instance = this;
 
 		Selected = false;
+		gameOver = false;
 
 		HealthIncrement = 0;
 		SpeedIncrement = 0;
