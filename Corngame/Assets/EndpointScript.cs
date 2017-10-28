@@ -15,7 +15,8 @@ public class EndpointScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D c) {
 	
 		if (c.CompareTag ("Enemy")) {
-			gameOver = true;
+
+			InsectGameControllerTAP.Instance.gameOver = true;
 			TextReader.SetTrivia ();
 		}
 	}
