@@ -27,6 +27,8 @@ public class MGTreeScript : MonoBehaviour {
 
 	[SerializeField] BackgroundScript background;
 
+	[SerializeField] TutorialScript tutorial;
+
 	public List<string> gestures;
 	string currentGesture;
 
@@ -82,6 +84,8 @@ public class MGTreeScript : MonoBehaviour {
 		gameOverCanvas.SetActive (false);
 
 		Time.timeScale = 1;
+
+		tutorial.gameObject.SetActive (true);
 	}
 
 	void Update() {
