@@ -46,10 +46,10 @@ public class Trivia_Script : MonoBehaviour {
 
         //Hide already unlocked buttons
         foreach (Transform T in transform)
-        {
-
-			try { T.gameObject.GetComponent<Trivia_Points_unlocker>().Unlocker(MaxGameScore); }
-			catch { Debug.Log(MaxGameScore); };
+		{ 
+			
+			try{ T.gameObject.GetComponent<Trivia_Points_unlocker>().Unlocker(MaxGameScore);} 
+			catch { Debug.Log (T); }
 
         }
     }
